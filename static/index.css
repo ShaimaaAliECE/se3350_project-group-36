@@ -9,9 +9,13 @@ body {
     color: white;
 }
 
+div {
+    padding: 250px 0;
+}
+
 h1 {
     font-size: 64px;
-    padding: 250px 0;
+    padding: 0 0;
     text-align: center;
 }
 
@@ -36,7 +40,7 @@ button {
     cursor: pointer;
     transition: all 0.5s;
     width: 350px;
-    margin: auto auto;
+    margin: 0 auto;
 }
 
 btn-group {
