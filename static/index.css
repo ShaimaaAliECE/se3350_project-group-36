@@ -41,20 +41,7 @@ button {
     transition: all 0.5s;
     width: 350px;
     margin: 0 auto;
-}
-
-btn-group {
-    font-family: 'Invasion', serif;
-    border: 8px solid white;
-    color: white;
-    background-color: #0f0f0f;
-    padding: 24px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    font-size: 32px;
-    cursor: pointer;
-    transition: all 0.5s;
+    margin-bottom: 25px;
 }
 
 button span {
