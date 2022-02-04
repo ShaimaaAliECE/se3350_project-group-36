@@ -1,4 +1,16 @@
+@font-face {
+    font-family: 'PlayMeGames';
+    src: url("PlayMeGames-Demo.otf") format("opentype");
+}
+
 body {
+    font-family: 'PlayMeGames', serif;
     background-color: #1a1a1a;
+}
+
+h1 {
     color: white;
+    font-size: 64px;
+    padding: 300px 0;
+    text-align: center;
 }
