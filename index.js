@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require('path');
 
 const app = express();
 
@@ -13,6 +14,13 @@ app.post("/login", (req, res) => {
         message: "Hello API"
     });
 });
+
+app.get("/algorithm-select", (req, res) => {
+    res.sendFile(path.join(pages, '/algorithm-select.html'));
+
+});
+
+
 
 app.listen(80, () => {
     console.log(`listening on port 80`);
