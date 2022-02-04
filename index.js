@@ -16,7 +16,7 @@ app.post("/login", (req, res) => {
 });
 
 app.get("/algorithm-select", (req, res) => {
-    res.sendFile(path.join(pages, '/algorithm-select.html'));
+    res.sendFile( __dirname + "/pages/" + "algorithm-select.html" );
 
 });
 
