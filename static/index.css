@@ -14,3 +14,48 @@ h1 {
     padding: 300px 0;
     text-align: center;
 }
+
+button {
+    font-family: 'Invasion', serif;
+    border: 8px solid white;
+    color: white;
+    background-color: #0f0f0f;
+    padding: 24px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 32px;
+    cursor: pointer;
+    transition: all 0.5s;
+    width: 350px;
+    margin: -300px auto;
+}
+
+button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+button span:after {
+    content: '->';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -40px;
+    transition: 0.5s;
+}
+
+button:hover span {
+    padding-right: 25px;
+}
+
+button:hover {
+    background-color: black;
+}
+
+button:hover span:after {
+    opacity: 1;
+    right: -20px;
+}
