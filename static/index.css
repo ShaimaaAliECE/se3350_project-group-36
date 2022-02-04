@@ -6,12 +6,20 @@
 body {
     font-family: 'Invasion', serif;
     background-color: #1a1a1a;
+    color: white;
 }
 
 h1 {
-    color: white;
     font-size: 64px;
     padding: 280px 0;
+    text-align: center;
+}
+
+footer {
+    bottom: 1%;
+    left: 1%;
+    font-size: 16px;
+    position: absolute;
     text-align: center;
 }
 
@@ -28,7 +36,7 @@ button {
     cursor: pointer;
     transition: all 0.5s;
     width: 350px;
-    margin: -300px auto;
+    margin: -290px auto;
 }
 
 button span {
