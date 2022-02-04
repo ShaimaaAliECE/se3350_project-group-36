@@ -1,7 +1,8 @@
 const express = require("express");
 
-const API_PORT = process.env.PORT || 3001;
 const app = express();
+
+app.use(express.static("static"));
 
 app.use(express.urlencoded({
     extended: true
@@ -13,6 +14,6 @@ app.post("/login", (req, res) => {
     });
 });
 
-app.listen(API_PORT, () => {
-    console.log(`listening on port ${API_PORT}`);
+app.listen(80, () => {
+    console.log(`listening on port 80`);
 });
