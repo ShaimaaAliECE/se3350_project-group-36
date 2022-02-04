@@ -1,0 +1,19 @@
+{
+  "name": "se3350_project-group-36",
+  "version": "1.0.0",
+  "description": "Educational game to teach the MergeSort algorithm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShaimaaAliECE/se3350_project-group-36.git"
+  },
+  "author": "Rohan Kamra Lyons & Ethan Machej",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShaimaaAliECE/se3350_project-group-36/issues"
+  },
+  "homepage": "https://github.com/ShaimaaAliECE/se3350_project-group-36#readme"
+}
