@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ShaimaaAliECE/se3350_project-group-36/issues"
   },
-  "homepage": "https://github.com/ShaimaaAliECE/se3350_project-group-36#readme"
+  "homepage": "https://github.com/ShaimaaAliECE/se3350_project-group-36#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
 }
