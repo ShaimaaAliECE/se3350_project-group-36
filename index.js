@@ -25,6 +25,11 @@ app.get("/level-select", (req, res) => {
 
 });
 
+app.get("/level-1", (req, res) => {
+    res.sendFile( __dirname + "/pages/" + "/levels/" + "level-1.html" );
+
+});
+
 app.listen(80, () => {
     console.log(`listening on port 80`);
 });
