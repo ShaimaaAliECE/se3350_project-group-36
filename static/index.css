@@ -1,10 +1,10 @@
 @font-face {
-    font-family: 'PlayMeGames';
-    src: url("PlayMeGames-Demo.otf") format("opentype");
+    font-family: 'Invasion';
+    src: url("INVASION2000.TTF") format("truetype");
 }
 
 body {
-    font-family: 'PlayMeGames', serif;
+    font-family: 'Invasion', serif;
     background-color: #1a1a1a;
 }
 
