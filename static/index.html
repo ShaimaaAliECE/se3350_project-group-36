@@ -15,9 +15,15 @@
         <h1>Algorithm Educational Game</h1>
         <footer>Copyright 2022</footer>
         <div>
-            <button><span>Play Game</span></button>
+            <button id = "playGame"><span>Play Game</span></button>
         </div>
     </body>
+
+    <script>
+       document.getElementById('playGame').addEventListener('click', function() {
+           document.location.href = '/algorithm-select';
+       });
+    </script>
     
 
 </html>
