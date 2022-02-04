@@ -20,7 +20,10 @@ app.get("/algorithm-select", (req, res) => {
 
 });
 
+app.get("/level-select", (req, res) => {
+    res.sendFile( __dirname + "/pages/" + "level-select.html" );
 
+});
 
 app.listen(80, () => {
     console.log(`listening on port 80`);
