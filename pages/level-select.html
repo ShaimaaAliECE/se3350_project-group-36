@@ -12,24 +12,28 @@
     </head>
     
     <body>
-        <div style = "padding: 200px 0;">
+        <div class = "center_screen">
             <h1>Level Selection</h1>
             <div style = "display:flex; flex-direction: row; justify-content: center; align-items: center; gap:30px">
-                <button id = "level1">Level 1</button>
-                <button id = "level2">Level 2</button>
-                <button id = "level3">Level 3</button>
+                <button id = "level1" class = "big_button">Level 1</button>
+                <button id = "level2" class = "big_button">Level 2</button>
+                <button id = "level3" class = "big_button">Level 3</button>
             </div>
             <div style = "display:flex; flex-direction: row; justify-content: center; align-items: center; gap:30px">
-            <button id = "level4">Level 4</button>
-            <button id = "level5">Level 5</button>
-            <button id = "customLevel">Level X</button>
+            <button id = "level4" class = "big_button">Level 4</button>
+            <button id = "level5" class = "big_button">Level 5</button>
+            <button id = "customLevel" class = "big_button">Level X</button>
             </div>
         </div>
+        <button id = "backButton" class = "back_button">Back</button> 
     </body>
 
     <script>
         document.getElementById('level1').addEventListener('click', function() {
             document.location.href = '/level-1';
+        });
+        document.getElementById('backButton').addEventListener('click', function() {
+            document.location.href = '/algorithm-select';
         });
      </script>
     

@@ -15,6 +15,11 @@ app.post("/login", (req, res) => {
     });
 });
 
+app.get("/main-menu", (req, res) => {
+    res.sendFile( __dirname + "/static/" + "index.html" );
+
+});
+
 app.get("/algorithm-select", (req, res) => {
     res.sendFile( __dirname + "/pages/" + "algorithm-select.html" );
 

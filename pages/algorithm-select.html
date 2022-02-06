@@ -12,18 +12,22 @@
     </head>
     
     <body>
-        <div style = "padding: 250px 0;">
+        <div class = "center_screen">
             <h1>Algorithm Selection</h1>
             <div style = "display:flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px">
-                <button id = "mergeSort">MergeSort</button>
-                <button>Algortihm 2</button>
+                <button id = "mergeSort" class = "big_button">MergeSort</button>
+                <button class = "big_button">Algortihm 2</button>
             </div>
         </div>
+        <button id = "backButton" class = "back_button">Back</button> 
     </body>
     
     <script>
         document.getElementById('mergeSort').addEventListener('click', function() {
             document.location.href = '/level-select';
+        });
+        document.getElementById('backButton').addEventListener('click', function() {
+            document.location.href = '/main-menu';
         });
      </script>
 
