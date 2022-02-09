@@ -22,11 +22,3 @@ function mergeSort(givenArray) {
     const left = givenArray.splice(0, half);
     return merge(mergeSort(left),mergeSort(givenArray));
 }
-
-function finalSort(finalArray) {
-    return mergeSort(finalArray);
-}
-
-function test(arg) {
-    document.write(arg);
-}
