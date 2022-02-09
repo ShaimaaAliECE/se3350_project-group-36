@@ -27,6 +27,6 @@ function finalSort(finalArray) {
     return mergeSort(finalArray);
 }
 
-function test() {
-    return "Hello World";
+function test(arg) {
+    document.write(arg);
 }
