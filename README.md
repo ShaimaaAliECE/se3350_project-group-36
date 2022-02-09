@@ -5,4 +5,10 @@ npm install express nodemon --save
 
 Use "npm start" to start index.js
 
-TODO: Fix layout so that buttons and text are always close, and all objects are in the middle of the screen
+Font: copyright (c) Jakob Fischer at www.pizzadude.dk
+
+TODO:   Step tracking in mergeSort
+        Number generation
+        Tutorial level
+        Levels 2 and 3
+        Feedback on steps
