@@ -8,9 +8,9 @@
 
         <link rel = "stylesheet" href = "index.css">
 
-        <script type = "text/javascript" src = '..\..\static\mergeSort.js'></script>
-
         <Title>Level 1</Title>
+        
+        <script type = "text/javascript" src = '..\..\static\merge-sort.js'></script>
     </head>
     
     <body>
@@ -18,34 +18,9 @@
         <button id = "backButton" class = "back_button">Back</button> 
 
         <script>
-            function merge(left, right) {
-                let workingArray = [];
-
-                while (left.length && right.length) {
-                    if (left[0] < right[0]) {
-                        workingArray.push(left.shift()); 
-                    } else {
-                        workingArray.push(right.shift());
-                    }
-                }
-
-                return [ ...workingArray, ...left, ...right ];
-            }
-
-            function mergeSort(givenArray) {
-                const half = givenArray.length / 2;
-
-                if(givenArray.length < 2){
-                    return givenArray; 
-                }
-
-                const left = givenArray.splice(0, half);
-                return merge(mergeSort(left),mergeSort(givenArray));
-            }
-
             array = [7, 13, 18, 6, 18, 17, 11, 9, 3, 19];
 
-            document.getElementById("output").innerHTML = "Given Array: " + array + "<br>" + "Sorted Array: " + mergeSort(array);
+            document.getElementById("output").innerHTML = "Given Array: " + array + "<br>" + "Sorted Array: " + test();
         </script>
     </body>
     
