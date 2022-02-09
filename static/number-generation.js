@@ -1,0 +1,4 @@
+function numGen (randomArray) {
+
+
+}
