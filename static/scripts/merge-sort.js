@@ -8,7 +8,7 @@ function merge(left, right) {
             workingArray.push(right.shift());
         }
     }
-    document.write("<br>merge: ", workingArray, " + ", left, " + ", right);
+    document.write("<br>merge: working: ", workingArray, " + left: ", left, " + right: ", right);
     return [ ...workingArray, ...left, ...right ];
 }
 
