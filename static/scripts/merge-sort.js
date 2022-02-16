@@ -8,7 +8,7 @@ function merge(left, right) {
             workingArray.push(right.shift());
         }
     }
-    document.write("\n merge:",workingArray, left, right);
+    document.write("<br>merge: ", workingArray, " + ", left, " + ", right);
     return [ ...workingArray, ...left, ...right ];
 }
 
@@ -20,6 +20,6 @@ function mergeSort(givenArray) {
     }
 
     const left = givenArray.splice(0, half);
-    document.write("\n mergesort:",left, givenArray);
+    document.write("<br>mergesort: ", left, " + ", givenArray);
     return merge(mergeSort(left),mergeSort(givenArray));
 }
