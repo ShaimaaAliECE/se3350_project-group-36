@@ -1,5 +1,7 @@
+tracker0 = new Array(25);
+tracker1 = new Array (25);
+
 function merge(left, right) {
-    i=0;
     tracker1 = new Array(20);
     let workingArray = [];
 
@@ -11,8 +13,7 @@ function merge(left, right) {
         }
     }
     //step tracking
-    i++;
-    tracker1[i] = [ ...workingArray, ...left, ...right ];
+    updateArray([ ...workingArray, ...left, ...right ], 0);
     document.write("<br>sugma: ", tracker1[i]);
 
     document.write("<br>merge: working: ", workingArray, " + left: ", left, " + right: ", right);
@@ -20,7 +21,6 @@ function merge(left, right) {
 }
 
 function mergeSort(givenArray) {
-    i = 0;
     tracker2 = new Array(20);
     const half = givenArray.length / 2;
 
@@ -30,10 +30,25 @@ function mergeSort(givenArray) {
 
     const left = givenArray.splice(0, half);
     //step tracking
-    i++;
-    tracker2[i] = left;
+    updateArray(left, 1);
     document.write("<br>ligma: ", tracker2[i]);
     
     document.write("<br>mergesort: ", left, " + ", givenArray);
     return merge(mergeSort(left),mergeSort(givenArray));
+}
+
+function updateArray(arrayUpdate, arrayType) {
+    if(arrayType == 0) {
+        tracker0.push(arrayUpdate);
+    } else {
+        tracker1.push(arrayUpdate);
+    }
+}
+
+function displayArray(arrayType) {
+    if(arrayType == 0) {
+        return tracker0;
+    } else {
+        return tracker1;
+    }
 }
