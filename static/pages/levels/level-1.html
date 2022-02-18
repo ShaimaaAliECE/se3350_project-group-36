@@ -19,8 +19,9 @@
 
         <script>
             array = randomArray(10, 20);
-            track = false;
-            step = 1;
+            allSteps = [array];
+            track = true;
+            step = 0;
 
             function merge(left, right) {
                 let workingArray = [];
@@ -46,15 +47,20 @@
                 const left = givenArray.splice(0, half);
                 return merge(mergeSort(left),mergeSort(givenArray));
             }
-            document.getElementById("output").innerHTML = "Given Array: " + array 
-            array = mergeSort(array);
-            document.getElementById("output").innerHTML += "<br>" + "Step " + step + " Array: " + array;
 
             while(track == true) {
                 track = false;
                 array = mergeSort(array);
+                allSteps.push(array);
+                
+            }
+
+            for(i = 0; i < allSteps.length; i++) {
+                document.getElementById("output").innerHTML += "<br>" + "Step " + step + " Array: " 
+                for(j = 0; j < array.length; j++) {
+                    document.getElementById("output").innerHTML += allSteps[i, j] + " ";
+                }
                 step += 1;
-                document.getElementById("output").innerHTML += "<br>" + "Step " + step + " Array: " + array;
             }
 
         </script>
