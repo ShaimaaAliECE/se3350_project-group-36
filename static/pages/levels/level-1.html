@@ -14,7 +14,7 @@
     </head>
     
     <body>
-        <h1 id = "output"></h1>
+        <p id = "output"></p>
         <button id = "backButton" class = "back_button">Back</button> 
 
         <script>
@@ -50,18 +50,18 @@
 
             while(track == true) {
                 track = false;
+                document.getElementById("output").innerHTML += array + "<br>";
                 array = mergeSort(array);
                 allSteps.push(array);
-                
             }
 
-            for(i = 0; i < allSteps.length; i++) {
+            /*for(i = 0; i < allSteps.length; i++) {
                 document.getElementById("output").innerHTML += "<br>" + "Step " + step + " Array: " 
                 for(j = 0; j < array.length; j++) {
                     document.getElementById("output").innerHTML += allSteps[i, j] + " ";
                 }
                 step += 1;
-            }
+            }*/
 
         </script>
     </body>
