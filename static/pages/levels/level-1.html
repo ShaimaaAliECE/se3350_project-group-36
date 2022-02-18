@@ -48,7 +48,22 @@
                 const left = givenArray.splice(0, half);
                 return merge(mergeSort(left),mergeSort(givenArray));
             }
-            document.getElementById("output").innerHTML = "Given Array: " + array + "<br>" + "Sorted Array: " + mergeSort(array);
+            document.getElementById("output").innerHTML = "Given Array: " + array 
+            array = mergeSort(array);
+            track = false;
+            document.getElementById("output").innerHTML += "<br>" + "Step 1 Array: " + array;
+            array = mergeSort(array);
+            track = false;
+            document.getElementById("output").innerHTML += "<br>" + "Step 2 Array: " + array;
+            array = mergeSort(array);
+            track = false;
+            document.getElementById("output").innerHTML += "<br>" + "Step 3 Array: " + array;
+            array = mergeSort(array);
+            track = false;
+            document.getElementById("output").innerHTML += "<br>" + "Step 4 Array: " + array;
+            array = mergeSort(array);
+            track = false;
+            document.getElementById("output").innerHTML += "<br>" + "Step 5 Array: " + array;
         </script>
     </body>
     
