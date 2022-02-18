@@ -20,12 +20,10 @@
         <script>
             array = randomArray(10, 20);
             track = false;
+            step = 1;
 
             function merge(left, right) {
                 let workingArray = [];
-
-                leftCheck = left;
-                rightCheck = right;
 
                 while (left.length && right.length) {
                     if(left[0] > right[0] && track == false) {
@@ -50,20 +48,15 @@
             }
             document.getElementById("output").innerHTML = "Given Array: " + array 
             array = mergeSort(array);
-            track = false;
-            document.getElementById("output").innerHTML += "<br>" + "Step 1 Array: " + array;
-            array = mergeSort(array);
-            track = false;
-            document.getElementById("output").innerHTML += "<br>" + "Step 2 Array: " + array;
-            array = mergeSort(array);
-            track = false;
-            document.getElementById("output").innerHTML += "<br>" + "Step 3 Array: " + array;
-            array = mergeSort(array);
-            track = false;
-            document.getElementById("output").innerHTML += "<br>" + "Step 4 Array: " + array;
-            array = mergeSort(array);
-            track = false;
-            document.getElementById("output").innerHTML += "<br>" + "Step 5 Array: " + array;
+            document.getElementById("output").innerHTML += "<br>" + "Step " + step + " Array: " + array;
+
+            while(track == true) {
+                track = false;
+                array = mergeSort(array);
+                step += 1;
+                document.getElementById("output").innerHTML += "<br>" + "Step " + step + " Array: " + array;
+            }
+
         </script>
     </body>
     
