@@ -28,11 +28,11 @@
                 rightCheck = right;
 
                 while (left.length && right.length) {
-                    if(left[0] < right[0] && track == false) {
-                        workingArray.push(left.shift());
+                    if(left[0] > right[0] && track == false) {
+                        workingArray.push(right.shift());
                         track = true;
                     } else {
-                        workingArray.push(right.shift());
+                        workingArray.push(left.shift());
                     }
                 }
                 return [ ...workingArray, ...left, ...right ];
