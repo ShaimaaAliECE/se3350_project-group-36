@@ -19,9 +19,11 @@
 
         <script>
             array = randomArray(10, 20);
-            allSteps = [array];
+            allSteps = [];
+            allSteps.push(array);
             track = true;
             step = 0;
+            document.getElementById("output").innerHTML += "<br>" + "Step " + step + " Array: " + allSteps;
 
             function merge(left, right) {
                 let workingArray = [];
@@ -48,6 +50,23 @@
                 return merge(mergeSort(left),mergeSort(givenArray));
             }
 
+
+            let activities = [
+                ['Work', 9],
+                ['Eat', 1],
+                ['Commute', 2],
+                ['Play Game', 1],
+                ['Sleep', 7]
+            ];
+
+            document.getElementById("output").innerHTML += "<br>" + activities + "<br>";
+            activities.push(['Study',2]);
+            document.getElementById("output").innerHTML += "<br>" + activities + "<br>";
+            testArray = ['who knows', 52];
+            activities.push(testArray);
+            activities.push(array);
+            document.getElementById("output").innerHTML += "<br>" + activities + "<br>";
+            
             while(track == true) {
                 track = false;
                 document.getElementById("output").innerHTML += array + "<br>";
@@ -55,13 +74,14 @@
                 allSteps.push(array);
             }
 
-            /*for(i = 0; i < allSteps.length; i++) {
+
+            for(i = 0; i < allSteps.length; i++) {
                 document.getElementById("output").innerHTML += "<br>" + "Step " + step + " Array: " 
                 for(j = 0; j < array.length; j++) {
                     document.getElementById("output").innerHTML += allSteps[i, j] + " ";
                 }
                 step += 1;
-            }*/
+            }
 
         </script>
     </body>
