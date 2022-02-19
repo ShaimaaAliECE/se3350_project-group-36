@@ -21,6 +21,7 @@
             array = randomArray(10, 20);
             allSteps = [];
             allSteps.push(array);
+            allSteps.push(["test", 2])
             track = true;
             step = 0;
             document.getElementById("output").innerHTML += "<br>" + "Step " + step + " Array: " + allSteps;
@@ -82,6 +83,8 @@
                 }
                 step += 1;
             }
+
+            document.getElementById("output").innerHTML += "<br>" + "AllSteps Full Array: " + allSteps;
 
         </script>
     </body>
