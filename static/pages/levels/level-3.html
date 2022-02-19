@@ -10,12 +10,64 @@
 
         <Title>Level 3</Title>
         
-        <script type = "text/javascript" src = '..\..\scripts\merge-sort.js'></script>
-        <script type = "text/javascript" src = '..\..\scripts\number-generation.js'></script>
+        <script type = "text/javascript" src = '..\..\scripts\array-generation.js'></script>
     </head>
     
     <body>
+        <p id = "output"></p>
         <button id = "backButton" class = "back_button">Back</button> 
+        <script>
+            array = randomArray(10, 20);
+            allSteps = multiArray(); 
+            track = true;
+            step = 0;
+
+            function merge(left, right) {
+                let workingArray = [];
+
+                while (left.length && right.length) {
+                    if(left[0] > right[0] && track == false) {
+                        workingArray.push(right.shift());
+                        track = true;
+                    } else {
+                        workingArray.push(left.shift());
+                    }
+                }
+                return [ ...workingArray, ...left, ...right ];
+            }
+
+            function mergeSort(givenArray) {
+                const half = givenArray.length / 2;
+
+                if(givenArray.length < 2){
+                    return givenArray; 
+                }
+
+                const left = givenArray.splice(0, half);
+                return merge(mergeSort(left),mergeSort(givenArray));
+            }
+            
+            len = 0;
+            document.getElementById("output").innerHTML += "Given: " + array; 
+
+            while(track == true) {
+                track = false;
+                for(j = 0; j < array.length; j++) {
+                    allSteps[len][j] = array[j];
+                }
+                array = mergeSort(array);
+                len++;
+            }
+
+            for(i = 0; i < len; i++) {
+                document.getElementById("output").innerHTML += "<br>" + "Step " + step + ": " 
+                for(j = 0; j < array.length; j++) {
+                    document.getElementById("output").innerHTML += allSteps[i][j] + " ";
+                }
+                step += 1;
+            }
+
+        </script>
     </body>
     
     <script>
