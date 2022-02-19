@@ -1,27 +1,18 @@
-track = false;
-
-function merge(left, right) {
+function merge(left, right, track) {
     let workingArray = [];
 
-    leftCheck = left;
-    rightCheck = right;
-
     while (left.length && right.length) {
-        if(track == false) {
-            if(left[0] < right[0]) {
-                workingArray.push(left.shift());
-                track = true;
-            } 
-        } else {
+        if(left[0] > right[0] && track == false) {
             workingArray.push(right.shift());
+            track = true;
+        } else {
+            workingArray.push(left.shift());
         }
     }
-    //step tracking
-    updateArray([ ...workingArray, ...left, ...right ], 0);
     return [ ...workingArray, ...left, ...right ];
 }
 
-function mergeSort(givenArray) {
+function mergeSort(givenArray, track) {
     const half = givenArray.length / 2;
 
     if(givenArray.length < 2){
@@ -29,7 +20,5 @@ function mergeSort(givenArray) {
     }
 
     const left = givenArray.splice(0, half);
-    //step tracking
-    updateArray(left, 1);
-    return merge(mergeSort(left),mergeSort(givenArray));
+    return merge(mergeSort(left, track), mergeSort(givenArray, track), track);
 }
