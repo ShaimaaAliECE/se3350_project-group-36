@@ -8,13 +8,13 @@ Use "npm start" to start index.js
 Font: copyright (c) Jakob Fischer at www.pizzadude.dk
 
 TODO:   Rohan: 
-            Tutorial level
-            Level 3
+            Tutorial level,
+            Level 3,
         Ethan:
         Both:
         To Fix:
-            Audio for feedback glitching
-            Link from level to level
-            Draggable on box space vs direct click on numbers
-            Feedback colours on boxes
-            Fix correct audio to not cut
+            Audio for feedback glitching,
+            Link from level to level,
+            Draggable on box space vs direct click on numbers,
+            Feedback colours on boxes,
+            Fix correct audio to not cut,
