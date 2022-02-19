@@ -13,23 +13,66 @@
         <script type = "text/javascript" src = '..\..\scripts\array-generation.js'></script>
     </head>
     
-    <body>
-        <p id = "output"></p>
-        <button id = "backButton" class = "back_button">Back</button> 
+    <body> 
+        <div class = "center_screen">
+            <h2>Level 2</h1>
+            <p id = "stepTracker"></p>
+            <div style = "display:flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px">
+                <div class = "box">
+                    <div id = "item0" class = "item" draggable = "true"></div>
+                </div>
+                <div class = "box">
+                    <div id = "item1" class = "item" draggable = "true"></div>
+                </div>
+                <div class = "box">
+                    <div id = "item2" class = "item" draggable = "true"></div>
+                </div>
+                <div class = "box">
+                    <div id = "item3" class = "item" draggable = "true"></div>
+                </div>
+                <div class = "box">
+                    <div id = "item4" class = "item" draggable = "true"></div>
+                </div>
+                <div class = "box">
+                    <div id = "item5" class = "item" draggable = "true"></div>
+                </div>
+                <div class = "box">
+                    <div id = "item6" class = "item" draggable = "true"></div>
+                </div>
+                <div class = "box">
+                    <div id = "item7" class = "item" draggable = "true"></div>
+                </div>
+                <div class = "box">
+                    <div id = "item8" class = "item" draggable = "true"></div>
+                </div>
+                <div class = "box">
+                    <div id = "item9" class = "item" draggable = "true"></div>
+                </div>
+            </div>
+            <div style = "display:flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px">
+                <button id = "backButton" class = "small_button">Back</button>
+                <div class = "box">
+                </div>
+                <button id = "checkButton" class = "small_button">Check</button>
+            </div>
+        </div>
+
+        <script src = '..\..\scripts\drag-drop.js'></script>
 
         <script>
             array = randomArray(10, 20);
             allSteps = multiArray(); 
-            track = true;
+            toggle = true;
             step = 0;
+            checkCorrect = false;
 
             function merge(left, right) {
                 let workingArray = [];
 
                 while (left.length && right.length) {
-                    if(left[0] > right[0] && track == false) {
+                    if(left[0] > right[0] && toggle == false) {
                         workingArray.push(right.shift());
-                        track = true;
+                        toggle = true;
                     } else {
                         workingArray.push(left.shift());
                     }
@@ -49,10 +92,9 @@
             }
             
             len = 0;
-            document.getElementById("output").innerHTML += "Given: " + array; 
 
-            while(track == true) {
-                track = false;
+            while(toggle == true) {
+                toggle = false;
                 for(j = 0; j < array.length; j++) {
                     allSteps[len][j] = array[j];
                 }
@@ -60,12 +102,14 @@
                 len++;
             }
 
-            for(i = 0; i < len; i++) {
-                document.getElementById("output").innerHTML += "<br>" + "Step " + step + ": " 
-                for(j = 0; j < array.length; j++) {
-                    document.getElementById("output").innerHTML += allSteps[i][j] + " ";
-                }
-                step += 1;
+            for(j = 0; j < array.length; j ++) {
+                document.getElementById("item" + j).innerHTML = allSteps[0][j]; 
+            }
+
+            step += 1;
+            document.getElementById("stepTracker").innerHTML = "Step " + step + ": ";
+            for(j = 0; j < array.length; j++) {
+                    document.getElementById("stepTracker").innerHTML += allSteps[step][j] + " ";
             }
 
         </script>
