@@ -13,7 +13,6 @@ TODO:   Rohan:
         Ethan:
         Both:
         To Fix:
-            Audio for feedback glitching,
             Link from level to level,
             Draggable on box space vs direct click on numbers,
             Feedback colours on boxes,

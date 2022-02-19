@@ -58,10 +58,10 @@
                 <button id = "checkButton" class = "small_button">Check</button>
             </div>
             <h2 id = "stepCorrect">🦔</h2>
-        </div>
 
-        <audio id = "correctAudio" src = ..\..\correct.mp3></audio>
-        <audio id = "incorrectAudio" src = ..\..\incorrect.mp3></audio>
+            <audio id = "correct" src = "..\..\correct.mp3"></audio>
+            <audio id = "incorrect" src = "..\..\incorrect.mp3"></audio>
+        </div>
 
         <script src = '..\..\scripts\drag-drop.js'></script>
 
@@ -102,18 +102,17 @@
                         if(document.getElementById("box" + j).children[0].innerHTML == allSteps[checkStep][j]) {
                             mistake = false;
                             document.getElementById("stepCorrect").innerHTML = "✔️";
-                            correctAudio();
                             reset();
                         } else {
                             mistake = true;
                             document.getElementById("stepCorrect").innerHTML = "❌";
-                            incorrectAudio();
                             reset();
                             break;
                         }
                     }
                     
                     if(mistake == false){
+                        document.getElementById("correct").play();
                         checkStep += 1;
                         step += 1;
                         if(checkStep >= len) {
@@ -125,6 +124,8 @@
                                 document.getElementById("stepTracker").innerHTML += allSteps[step][j] + " ";
                             }
                         }
+                    } else if(mistake == true) {
+                        document.getElementById("incorrect").play();
                     }
                 }
             });
