@@ -9,11 +9,9 @@ Font: copyright (c) Jakob Fischer at www.pizzadude.dk
 
 TODO:   Rohan: 
             Tutorial level,
-            Level 3,
         Ethan:
         Both:
         To Fix:
-            Link from level to level,
             Draggable on box space vs direct click on numbers,
             Feedback colours on boxes,
             Fix correct audio to not cut,
