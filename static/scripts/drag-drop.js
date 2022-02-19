@@ -19,21 +19,21 @@ function dragStart(e) {
 
 function dragEnter(e) {
     e.preventDefault();
-    e.target.classList.add('drag-over');
+    //e.target.classList.add('drag-over');
 }
 
 function dragOver(e) {
     e.preventDefault();
-    e.target.classList.add('drag-over');
+    //e.target.classList.add('drag-over');
 }
 
 function dragLeave(e) {
-    e.target.classList.remove('drag-over');
+    //e.target.classList.remove('drag-over');
 }
 
 function drop(e) {
     e.preventDefault();
-    e.target.classList.remove('drag-over');
+    //e.target.classList.remove('drag-over');
 
     const id = e.dataTransfer.getData('text/plain');
     const draggable = document.getElementById(id);

@@ -9,6 +9,7 @@
 
 .drag-over {
     border: dashed 6px red;
+    background-color: darkgoldenrod;
 }
 
 .center_screen {
@@ -47,10 +48,6 @@ p {
     margin-bottom: 60px;
 }
 
-p.p2 {
-    margin-bottom: 0;
-}
-
 footer {
     bottom: 1%;
     left: 1%;
@@ -64,7 +61,7 @@ footer {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #1a1a1a;
+    background-color: #0f0f0f;
     width: 55px;
     border: 6px solid white;
     height: 50px;

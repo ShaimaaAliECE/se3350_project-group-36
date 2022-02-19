@@ -11,13 +11,14 @@
         <Title>Level 2</Title>
         
         <script type = "text/javascript" src = '..\..\scripts\array-generation.js'></script>
+        <script type = "text/javascript" src = '..\..\scripts\merge-sort.js'></script>
+        <script type = "text/javascript" src = '..\..\scripts\hog-set.js'></script>
     </head>
     
     <body> 
         <div class = "center_screen">
             <h2>Level 2</h2>
-            <p id = "stepTracker" class = "p2"></p>
-            <p id = "stepCorrect">First Step</p>
+            <p id = "stepTracker"></p>
             <div style = "display:flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px">
                 <div id = "box0" class = "box">
                     <div id = "item0" class = "item" draggable = "true"></div>
@@ -56,45 +57,22 @@
                 </div>
                 <button id = "checkButton" class = "small_button">Check</button>
             </div>
+            <h2 id = "stepCorrect">🦔</h2>
         </div>
+
+        <audio id = "correctAudio" src = ..\..\correct.mp3></audio>
+        <audio id = "incorrectAudio" src = ..\..\incorrect.mp3></audio>
 
         <script src = '..\..\scripts\drag-drop.js'></script>
 
         <script>
             array = randomArray(10, 20);
-            allSteps = multiArray(); 
-            toggle = true;
-            levelDone = false;
-
-            function merge(left, right) {
-                let workingArray = [];
-
-                while (left.length && right.length) {
-                    if(left[0] > right[0] && toggle == false) {
-                        workingArray.push(right.shift());
-                        toggle = true;
-                    } else {
-                        workingArray.push(left.shift());
-                    }
-                }
-                return [ ...workingArray, ...left, ...right ];
-            }
-
-            function mergeSort(givenArray) {
-                const half = givenArray.length / 2;
-
-                if(givenArray.length < 2){
-                    return givenArray; 
-                }
-
-                const left = givenArray.splice(0, half);
-                return merge(mergeSort(left),mergeSort(givenArray));
-            }
-            
+            allSteps = multiArray();
+            levelDone = false;            
             len = 0;
 
-            while(toggle == true) {
-                toggle = false;
+            while(getToggle() == true) {
+                setToggle(false);
                 for(j = 0; j < array.length; j++) {
                     allSteps[len][j] = array[j];
                 }
@@ -123,10 +101,14 @@
                         childVal = child.innerHTML;
                         if(childVal == allSteps[checkStep][j]) {
                             mistake = false;
-                            document.getElementById("stepCorrect").innerHTML = "Correct";
+                            document.getElementById("stepCorrect").innerHTML = "✔️";
+                            correctAudio();
+                            reset();
                         } else {
                             mistake = true;
-                            document.getElementById("stepCorrect").innerHTML = "Incorrect";
+                            document.getElementById("stepCorrect").innerHTML = "❌";
+                            incorrectAudio();
+                            reset();
                             break;
                         }
                     }
