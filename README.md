@@ -9,8 +9,12 @@ Font: copyright (c) Jakob Fischer at www.pizzadude.dk
 
 TODO:   Rohan: 
             Tutorial level
-            Levels 2 and 3
+            Level 3
         Ethan:
-            Step tracking in mergeSort
         Both:
-            Feedback on steps
+        To Fix:
+            Audio for feedback glitching
+            Link from level to level
+            Draggable on box space vs direct click on numbers
+            Feedback colours on boxes
+            Fix correct audio to not cut

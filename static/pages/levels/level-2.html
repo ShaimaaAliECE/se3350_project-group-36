@@ -99,7 +99,7 @@
                         parent = document.getElementById("box" + j);
                         child = parent.children[0];
                         childVal = child.innerHTML;
-                        if(childVal == allSteps[checkStep][j]) {
+                        if(document.getElementById("box" + j).children[0].innerHTML == allSteps[checkStep][j]) {
                             mistake = false;
                             document.getElementById("stepCorrect").innerHTML = "✔️";
                             correctAudio();
