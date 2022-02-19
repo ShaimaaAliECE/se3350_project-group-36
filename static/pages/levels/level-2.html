@@ -15,37 +15,38 @@
     
     <body> 
         <div class = "center_screen">
-            <h2>Level 2</h1>
-            <p id = "stepTracker"></p>
+            <h2>Level 2</h2>
+            <p id = "stepTracker" class = "p2"></p>
+            <p id = "stepCorrect">First Step</p>
             <div style = "display:flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px">
-                <div class = "box">
+                <div id = "box0" class = "box">
                     <div id = "item0" class = "item" draggable = "true"></div>
                 </div>
-                <div class = "box">
+                <div id = "box1" class = "box">
                     <div id = "item1" class = "item" draggable = "true"></div>
                 </div>
-                <div class = "box">
+                <div id = "box2" class = "box">
                     <div id = "item2" class = "item" draggable = "true"></div>
                 </div>
-                <div class = "box">
+                <div id = "box3" class = "box">
                     <div id = "item3" class = "item" draggable = "true"></div>
                 </div>
-                <div class = "box">
+                <div id = "box4" class = "box">
                     <div id = "item4" class = "item" draggable = "true"></div>
                 </div>
-                <div class = "box">
+                <div id = "box5" class = "box">
                     <div id = "item5" class = "item" draggable = "true"></div>
                 </div>
-                <div class = "box">
+                <div id = "box6" class = "box">
                     <div id = "item6" class = "item" draggable = "true"></div>
                 </div>
-                <div class = "box">
+                <div id = "box7" class = "box">
                     <div id = "item7" class = "item" draggable = "true"></div>
                 </div>
-                <div class = "box">
+                <div id = "box8" class = "box">
                     <div id = "item8" class = "item" draggable = "true"></div>
                 </div>
-                <div class = "box">
+                <div id = "box9" class = "box">
                     <div id = "item9" class = "item" draggable = "true"></div>
                 </div>
             </div>
@@ -63,8 +64,7 @@
             array = randomArray(10, 20);
             allSteps = multiArray(); 
             toggle = true;
-            step = 0;
-            checkCorrect = false;
+            levelDone = false;
 
             function merge(left, right) {
                 let workingArray = [];
@@ -106,16 +106,43 @@
                 document.getElementById("item" + j).innerHTML = allSteps[0][j]; 
             }
 
-            step += 1;
+            step = 1;
             document.getElementById("stepTracker").innerHTML = "Step " + step + ": ";
             for(j = 0; j < array.length; j++) {
                     document.getElementById("stepTracker").innerHTML += allSteps[step][j] + " ";
             }
 
+            checkStep = 1;
             document.getElementById("checkButton").addEventListener('click', function() {
-                for(j = 0; j < array.length; j ++) {
-                    if() {
-                        
+                if(levelDone == true){
+                    document.location.href = '/level-select';
+                } else {
+                    for(j = 0; j < array.length; j ++) {
+                        parent = document.getElementById("box" + j);
+                        child = parent.children[0];
+                        childVal = child.innerHTML;
+                        if(childVal == allSteps[checkStep][j]) {
+                            mistake = false;
+                            document.getElementById("stepCorrect").innerHTML = "Correct";
+                        } else {
+                            mistake = true;
+                            document.getElementById("stepCorrect").innerHTML = "Incorrect";
+                            break;
+                        }
+                    }
+                    
+                    if(mistake == false){
+                        checkStep += 1;
+                        step += 1;
+                        if(checkStep >= len) {
+                            levelDone = true;
+                            document.getElementById("stepTracker").innerHTML = "Level Done!";
+                        } else {
+                            document.getElementById("stepTracker").innerHTML = "Step " + step + ": ";
+                            for(j = 0; j < array.length; j++) {
+                                document.getElementById("stepTracker").innerHTML += allSteps[step][j] + " ";
+                            }
+                        }
                     }
                 }
             });

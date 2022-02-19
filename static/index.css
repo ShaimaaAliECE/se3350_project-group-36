@@ -7,6 +7,10 @@
     display: none;
 }
 
+.drag-over {
+    border: dashed 6px red;
+}
+
 .center_screen {
     display: flex;
     justify-content: center;
@@ -41,6 +45,10 @@ p {
     padding: 0 0;
     text-align: center;
     margin-bottom: 60px;
+}
+
+p.p2 {
+    margin-bottom: 0;
 }
 
 footer {

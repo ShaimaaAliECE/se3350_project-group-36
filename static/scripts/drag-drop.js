@@ -1,7 +1,10 @@
-const item = document.querySelector('.item');
+const items = document.querySelectorAll('.item');
 const boxes = document.querySelectorAll('.box');
 
-item.addEventListener('dragstart', dragStart);
+
+items.forEach(item => {  
+    addEventListener('dragstart', dragStart);
+});
 
 boxes.forEach(box => {
     box.addEventListener('dragenter', dragEnter)
@@ -12,24 +15,25 @@ boxes.forEach(box => {
 
 function dragStart(e) {
     e.dataTransfer.setData('text/plain', e.target.id);
-    setTimeout(() => {
-        e.target.classList.add('hide');
-    }, 0);
 }
 
 function dragEnter(e) {
     e.preventDefault();
+    e.target.classList.add('drag-over');
 }
 
 function dragOver(e) {
     e.preventDefault();
+    e.target.classList.add('drag-over');
 }
 
 function dragLeave(e) {
+    e.target.classList.remove('drag-over');
 }
 
 function drop(e) {
     e.preventDefault();
+    e.target.classList.remove('drag-over');
 
     const id = e.dataTransfer.getData('text/plain');
     const draggable = document.getElementById(id);
