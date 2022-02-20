@@ -13,21 +13,17 @@
     
     <body> 
         <div class = "center_screen">
-            <iframe
-                width="1900" 
-                height="900"
-                src="https://www.youtube.com/embed/GctMgwliybo?autoplay=1&controls=0">
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+            <iframe width="1900" height="900"
+            src="https://www.youtube.com/embed/GctMgwliybo?controls=0&autoplay=1&mute=1">
+            </iframe> 
         </div>
-
-        <script>
-        </script>
     </body>
     
     <script>
+        setTimeout(nextLevel, 67000);
+        function nextLevel() {
+            document.location.href = '/level-select';
+        }
      </script>
      
 </html>
