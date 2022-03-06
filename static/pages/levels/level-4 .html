@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+    <head>
+        <meta charset = "UTF-8">
+        <meta http-equiv = "X-UA-Compatible" content = "IE-edge">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+
+        <link rel = "stylesheet" href = "index.css">
+
+        <Title>Level 2</Title>
+        
+        <script type = "text/javascript" src = '..\..\scripts\array-generation.js'></script>
+        <script type = "text/javascript" src = '..\..\scripts\merge-sort.js'></script>
+        <script type = "text/javascript" src = '..\..\scripts\hog-set.js'></script>
+    </head>
+    
+    <body> 
+        <div class = "center_screen">
+            <h2>Level 2</h2>
+            <p id = "stepTracker"></p>
+            <div style = "display:flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px">
+                <div id = "box0" class = "box">
+                    <div id = "item0" class = "item" draggable = "true"></div>
+                </div>
+                <div id = "box1" class = "box">
+                    <div id = "item1" class = "item" draggable = "true"></div>
+                </div>
+                <div id = "box2" class = "box">
+                    <div id = "item2" class = "item" draggable = "true"></div>
+                </div>
+                <div id = "box3" class = "box">
+                    <div id = "item3" class = "item" draggable = "true"></div>
+                </div>
+                <div id = "box4" class = "box">
+                    <div id = "item4" class = "item" draggable = "true"></div>
+                </div>
+                <div id = "box5" class = "box">
+                    <div id = "item5" class = "item" draggable = "true"></div>
+                </div>
+                <div id = "box6" class = "box">
+                    <div id = "item6" class = "item" draggable = "true"></div>
+                </div>
+                <div id = "box7" class = "box">
+                    <div id = "item7" class = "item" draggable = "true"></div>
+                </div>
+                <div id = "box8" class = "box">
+                    <div id = "item8" class = "item" draggable = "true"></div>
+                </div>
+                <div id = "box9" class = "box">
+                    <div id = "item9" class = "item" draggable = "true"></div>
+                </div>
+            </div>
+            <div style = "display:flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px">
+                <button id = "backButton" class = "small_button">Back</button>
+                <div class = "box">
+                </div>
+                <button id = "checkButton" class = "small_button">Check</button>
+            </div>
+            <h2 id = "stepCorrect">🦔</h2>
+
+            <audio id = "correct" src = "..\..\correct.mp3"></audio>
+            <audio id = "incorrect" src = "..\..\incorrect.mp3"></audio>
+        </div>
+
+        <script src = '..\..\scripts\drag-drop.js'></script>
+
+        <script>
+            array = randomArray(10, 20);
+            allSteps = multiArray();
+            levelDone = false;            
+            len = 0;
+
+            while(getToggle() == true) {
+                setToggle(false);
+                for(j = 0; j < array.length; j++) {
+                    allSteps[len][j] = array[j];
+                }
+                array = mergeSort(array);
+                len++;
+            }
+
+            for(j = 0; j < array.length; j ++) {
+                document.getElementById("item" + j).innerHTML = allSteps[0][j]; 
+            }
+
+            step = 1;
+            document.getElementById("stepTracker").innerHTML = "Step " + step + ": ";
+            for(j = 0; j < array.length; j++) {
+                    document.getElementById("stepTracker").innerHTML += allSteps[step][j] + " ";
+            }
+
+            checkStep = 1;
+            document.getElementById("checkButton").addEventListener('click', function() {
+                if(levelDone == true){
+                    document.location.href = '/level-select';
+                } else {
+                    for(j = 0; j < array.length; j ++) {
+                        parent = document.getElementById("box" + j);
+                        child = parent.children[0];
+                        childVal = child.innerHTML;
+                        if(document.getElementById("box" + j).children[0].innerHTML == allSteps[checkStep][j]) {
+                            mistake = false;
+                            document.getElementById("stepCorrect").innerHTML = "✔️";
+                            reset();
+                        } else {
+                            mistake = true;
+                            document.getElementById("stepCorrect").innerHTML = "❌";
+                            reset();
+                            break;
+                        }
+                    }
+                    
+                    if(mistake == false){
+                        document.getElementById("correct").play();
+                        checkStep += 1;
+                        step += 1;
+                        if(checkStep >= len) {
+                            levelDone = true;
+                            document.getElementById("stepTracker").innerHTML = "Level Done!";
+                            document.getElementById("checkButton").innerHTML = "Next";
+                        } else {
+                            document.getElementById("stepTracker").innerHTML = "Step " + step + ": ";
+                            for(j = 0; j < array.length; j++) {
+                                document.getElementById("stepTracker").innerHTML += allSteps[step][j] + " ";
+                            }
+                        }
+                    } else if(mistake == true) {
+                        document.getElementById("incorrect").play();
+                    }
+                }
+            });
+
+        </script>
+    </body>
+    
+    <script>
+        document.getElementById("backButton").addEventListener('click', function() {
+            document.location.href = '/level-select';
+        });
+     </script>
+     
+</html>
