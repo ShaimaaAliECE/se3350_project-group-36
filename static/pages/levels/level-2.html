@@ -12,6 +12,7 @@
         
         <script type = "text/javascript" src = '..\..\scripts\array-generation.js'></script>
         <script type = "text/javascript" src = '..\..\scripts\merge-sort.js'></script>
+        <script type = "text/javascript" src = '..\..\scripts\merge2.js'></script>
         <script type = "text/javascript" src = '..\..\scripts\hog-set.js'></script>
     </head>
     
@@ -67,6 +68,7 @@
 
         <script>
             array = randomArray(10, 20);
+            array2 = [...array];
             allSteps = multiArray();
             levelDone = false;            
             len = 0;
@@ -130,6 +132,8 @@
                     }
                 }
             });
+            document.write("Steps: ")
+            mergeSort2(array2);
 
         </script>
     </body>

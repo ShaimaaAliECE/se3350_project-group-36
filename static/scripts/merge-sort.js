@@ -1,6 +1,6 @@
 toggle = true;
-var i = 0
-tempArrayL = new Array(20);
+//var i = 0
+//tempArrayL = new Array(20);
 
 
 
@@ -27,13 +27,15 @@ function mergeSort(givenArray) {
 
     const left = givenArray.splice(0, half);
 
-    i++;
+    /*i++;
     for (AC = 0; AC < left.length; AC++){
         tempArrayL[i] = JSON.parse(JSON.stringify(left));
         //console.log (tempArrayL[i]);
     }
     document.write("<br>" + tempArrayL[i]);
+    */
     return merge(mergeSort(left),mergeSort(givenArray));
+    
 }
 
 function getToggle() {
