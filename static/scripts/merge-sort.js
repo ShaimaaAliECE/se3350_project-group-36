@@ -1,4 +1,8 @@
 toggle = true;
+var i = 0
+tempArrayL = new Array(20);
+
+
 
 function merge(left, right) {
     let workingArray = [];
@@ -16,12 +20,20 @@ function merge(left, right) {
 
 function mergeSort(givenArray) {
     const half = givenArray.length / 2;
+    
 
     if(givenArray.length < 2){
         return givenArray; 
     }
 
     const left = givenArray.splice(0, half);
+    i++;
+    while (AC = 0, AC => left.length, AC++){
+        tempArrayL[i] = JSON.parse(JSON.stringify(left));
+    }
+    
+    
+    console.log(tempArrayL[i]);
     return merge(mergeSort(left),mergeSort(givenArray));
 }
 
