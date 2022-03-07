@@ -15,7 +15,7 @@ app.post("/login", (req, res) => {
     });
 });
 
-app.get("/main-menu", (req, res) => {
+app.get("/", (req, res) => {
     res.sendFile( __dirname + "/static/" + "index.html" );
 });
 
