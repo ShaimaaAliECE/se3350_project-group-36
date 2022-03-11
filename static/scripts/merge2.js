@@ -1,6 +1,11 @@
 var position = 9;
 var side = 0;
 
+let multiLeft = [];
+let multiRight = [];
+var split_counter = 0;
+
+
 function merge2(left, right) {
     let sortedArr = []; // the sorted elements will go here
   
@@ -23,7 +28,9 @@ function merge2(left, right) {
         position += 2;
     }
     side += 1;
+    
     return [...sortedArr, ...left, ...right];
+    
   }
 
   
@@ -45,5 +52,19 @@ function merge2(left, right) {
     document.write("<br>left split: " + left);
     document.write("<br>right split: " + right);
     document.write("<br>Split at position " + position + "<br>");
+  
+    multiLeft[split_counter] = [...left];
+    console.log("left array: " + multiLeft[split_counter]);
+    multiRight[split_counter] = [...right];
+    console.log("right array: " + multiRight[split_counter]);
+
+    split_counter++
+    
+    
+
+
     return merge2(mergeSort2(left), mergeSort2(right));
   }
+
+
+ 
