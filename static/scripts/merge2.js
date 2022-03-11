@@ -21,7 +21,7 @@ function merge2(left, right) {
     }
   
     // use spread operator and create a new array, combining the three arrays
-    document.write("<br>merge into: " + [...sortedArr, ...left, ...right]);
+    //document.write("<br>merge into: " + [...sortedArr, ...left, ...right]);
     if(side == 3) {
         position += 4;
     } else {
@@ -49,14 +49,18 @@ function merge2(left, right) {
     } else {
         position -= 1;
     }
+
+
+    /*
     document.write("<br>left split: " + left);
     document.write("<br>right split: " + right);
     document.write("<br>Split at position " + position + "<br>");
+    */
   
     multiLeft[split_counter] = [...left];
-    console.log("left array: " + multiLeft[split_counter]);
+    //console.log("left array: " + multiLeft[split_counter]);
     multiRight[split_counter] = [...right];
-    console.log("right array: " + multiRight[split_counter]);
+    //console.log("right array: " + multiRight[split_counter]);
 
     split_counter++
     
@@ -67,4 +71,11 @@ function merge2(left, right) {
   }
 
 
- 
+
+ function returnLeft(splitLevel){
+   return multiLeft[splitLevel];
+ }
+
+ function returnRight(splitLevel){
+  return multiRight[splitLevel];
+}
