@@ -15,22 +15,43 @@
     </head>
 
     <body>
-        <div id = "outer-div" style = "display:flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px">
+        <div id = "outer-div" style = "display:flex; flex-direction: column; justify-content: center; align-items: center; gap: 50px">
+            <div id = "inner-div" style = "display:flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px"></div>
         </div>
         <div style = "display:flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px">
             <button id = "backButton" class = "small_button">Back</button>
-            <div class = "box">
-            </div>
+            <div class = "box"></div>
             <button id = "checkButton" class = "small_button">Check</button>
         </div>
     </body>
 
+    <script src = '..\..\scripts\drag-drop.js'></script>
+
     <script>
         array = randomArray(10, 20);
+        document.getElementById("outer-div").innerHTML += "Inital Array: " + array;
         mergeSort2(array);
 
+        for(i = 0; i < returnFinishedArray()[0].length - 1; i++) {
+            var tempBox = document.createElement("div");
+            tempBox.id = "box" + i;
+            tempBox.className = "box";
+            document.getElementById("inner-div").appendChild(tempBox);
+            var tempItem = document.createElement("div");
+            tempItem.id = "item" + i;
+            tempItem.className = "item";
+            tempItem.draggable = "true";
+            tempItem.innerHTML = returnFinishedArray()[0][i + 1];
+            document.getElementById("box" + i).appendChild(tempItem)
+            //document.getElementById("inner-div").innerHTML += "<div id = 'box" + i + "' class = 'box'><div id = 'item" + i + "' class = 'item' draggable = 'true'>" + returnFinishedArray()[0][i + 1] + "</div></div>";
+        }
+
         for(i = 0; i < returnFinishedArray().length; i++) {
-            document.getElementById("outer-div").innerHTML += (returnFinishedArray()[i]) + "<br>";
+            if(returnFinishedArray()[i][0] > 0) {
+                document.getElementById("outer-div").innerHTML += "<br>Step " + (i + 1) + ": Split at " + (returnFinishedArray()[i][0]);
+            } else {
+                document.getElementById("outer-div").innerHTML += "<br>Step " + (i + 1) + ": Merge the splits";
+            }
         }
 
         /*document.getElementById("checkButton").addEventListener('click', function() {

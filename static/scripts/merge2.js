@@ -1,5 +1,5 @@
-var position = 9;
-var side = 0;
+position = 9;
+side = 0;
 
 finishedArray = [];
 stepCounter = 0;
@@ -39,7 +39,7 @@ function merge2(left, right) {
     }
     side += 1;
     
-    finishedArray[stepCounter] = [1, ...sortedArr, ...left, ...right];
+    finishedArray[stepCounter] = [0, ...sortedArr, ...left, ...right];
     stepCounter++;
 
     return [...sortedArr, ...left, ...right];
@@ -47,25 +47,23 @@ function merge2(left, right) {
 
   
   function mergeSort2(arr) {
-
-    finishedArray[stepCounter] = [0, ...arr];
-    stepCounter++;
-
-    const half = Math.ceil(arr.length / 2);
-  
+    const half = Math.ceil(arr.length / 2);   
 
     // the base case is array length <=1
     if (arr.length <= 1) {
       return arr;
+    } else {
+      if(half > 1) {
+        position -= half - 1;
+      } else {
+        position -= 1;
+      } 
+      finishedArray[stepCounter] = [position, ...arr];
+      stepCounter++;
     }
   
     const left = arr.splice(0, half); // the first half of the array
     const right = arr; // second half of the array
-    if(half > 1) {
-        position -= half - 1;
-    } else {
-        position -= 1;
-    }    
     
     /*leftSplit[split_counter] = [...left]; //copies the left half of the current array being split into another array
     rightSplit[split_counter] = [...right]; //copies the right half of the current array being split into another array
