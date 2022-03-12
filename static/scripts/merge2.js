@@ -88,6 +88,6 @@ function returnNewMerge(mergeLevel){
   return newMerge[mergeLevel];
 }*/
 
-function returnFinishedArray() {
+function allSteps() {
   return finishedArray;
 }

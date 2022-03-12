@@ -8,8 +8,17 @@
 }
 
 .drag-over {
-    border: dashed 6px red;
-    background-color: darkgoldenrod;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #0f0f0f;
+    width: 55px;
+    border: 6px dashed red;
+    height: 50px;
+    padding: 10px;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
 }
 
 .center_screen {
@@ -70,8 +79,30 @@ footer {
     margin-bottom: 30px;
 }
 
+.box2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #1a1a1a;
+    width: 40px;
+    height: 62px;
+}
+
 .item {
     font-size: 32px;
+}
+
+.split {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #dd3f3f;
+    width: 10px;
+    height: 50px;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
 }
 
 button {
