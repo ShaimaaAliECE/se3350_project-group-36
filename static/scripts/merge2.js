@@ -1,9 +1,12 @@
 var position = 9;
 var side = 0;
 
-let multiLeft = [];
-let multiRight = [];
+let leftSplit = [];
+let rightSplit = [];
 var split_counter = 0;
+let leftMerge = [];
+let rightMerge = [];
+var merge_counter = 0;
 
 
 function merge2(left, right) {
@@ -13,15 +16,14 @@ function merge2(left, right) {
       // insert the smallest element to the sortedArr
       if (left[0] < right[0]) {
         sortedArr.push(left.shift());
-        //document.write("<br>mergedleft: " + sortedArr);
+        //console.log("<br>mergedleft: " + sortedArr);
       } else {
         sortedArr.push(right.shift());
-        //document.write("<br>mergedright: " + sortedArr);
+        //console.log("<br>mergedright: " + sortedArr);
       }
     }
-  
     // use spread operator and create a new array, combining the three arrays
-    //document.write("<br>merge into: " + [...sortedArr, ...left, ...right]);
+    console.log("<br>merge into: " + [...sortedArr, ...left, ...right]);
     if(side == 3) {
         position += 4;
     } else {
@@ -29,13 +31,13 @@ function merge2(left, right) {
     }
     side += 1;
     
+
     return [...sortedArr, ...left, ...right];
-    
   }
 
   
   function mergeSort2(arr) {
-    const half = Math.ceil(arr.length / 2); 
+    const half = Math.ceil(arr.length / 2);
   
     // the base case is array length <=1
     if (arr.length <= 1) {
@@ -43,39 +45,27 @@ function merge2(left, right) {
     }
   
     const left = arr.splice(0, half); // the first half of the array
-    const right = arr;
+    const right = arr; // second half of the array
     if(half > 1) {
         position -= half - 1;
     } else {
         position -= 1;
     }
 
-
-    /*
-    document.write("<br>left split: " + left);
-    document.write("<br>right split: " + right);
-    document.write("<br>Split at position " + position + "<br>");
-    */
-  
-    multiLeft[split_counter] = [...left];
-    //console.log("left array: " + multiLeft[split_counter]);
-    multiRight[split_counter] = [...right];
-    //console.log("right array: " + multiRight[split_counter]);
-
+    leftSplit[split_counter] = [...left]; //copies the left half of the current array being split into another array
+    rightSplit[split_counter] = [...right]; //copies the right half of the current array being split into another array
     split_counter++
     
-    
-
-
-    return merge2(mergeSort2(left), mergeSort2(right));
+    return merge2(mergeSort2(left), mergeSort2(right)); //returns the fully sorted version of the original, full array
   }
 
 
-
- function returnLeft(splitLevel){
-   return multiLeft[splitLevel];
+//function to return the left side of an array after splitting
+ function returnLeftSplit(splitLevel){
+   return leftSplit[splitLevel];
  }
 
- function returnRight(splitLevel){
-  return multiRight[splitLevel];
+ //function to return the right side of an array after splitting
+ function returnRightSplit(splitLevel){
+  return rightSplit[splitLevel];
 }
