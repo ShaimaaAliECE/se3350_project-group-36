@@ -54,7 +54,6 @@ function merge2(left, right) {
 
     const half = Math.ceil(arr.length / 2);
   
-    check = givenCheck;
 
     // the base case is array length <=1
     if (arr.length <= 1) {
@@ -67,30 +66,7 @@ function merge2(left, right) {
         position -= half - 1;
     } else {
         position -= 1;
-    }
-
-    document.getElementById("checkButton").addEventListener('click', function() {
-      if(start == true) {
-        document.getElementById("checkButton").innerHTML = "Check"
-      }
-
-      if(check == true) {
-        var placement = 0;
-
-        for(j = 0; j < left.length; j++) {
-          document.getElementById("outer-div").innerHTML += "<div id = 'box" + placement + "' class = 'box' draggable = 'true'><div id = 'item" + placement + "' class = 'item' draggable = 'true'>" + left[j] + "</div></div>";
-          placement += 1;
-        }
-  
-        for(j = 0; j < right.length; j++) {
-          document.getElementById("outer-div").innerHTML += "<div id = 'box" + placement + "' class = 'box' draggable = 'true'><div id = 'item" + placement + "' class = 'item' draggable = 'true'>" + right[j] + "</div></div>";
-          placement += 1;
-        }
-        check = false;
-        return merge2(mergeSort2(left, check), mergeSort2(right, check)); //returns the fully sorted version of the original, full array
-      }
-    });
-    
+    }    
     
     leftSplit[split_counter] = [...left]; //copies the left half of the current array being split into another array
     rightSplit[split_counter] = [...right]; //copies the right half of the current array being split into another array
