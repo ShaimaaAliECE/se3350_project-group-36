@@ -15,7 +15,13 @@
     </head>
 
     <body>
-        <div id = "outer-div" style = "display:flex; flex-direction: column; justify-content: center; align-items: center; gap: 50px">
+        <div id = "outer-div" style = "display:flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px">
+        </div>
+        <div style = "display:flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px">
+            <button id = "backButton" class = "small_button">Back</button>
+            <div class = "box">
+            </div>
+            <button id = "checkButton" class = "small_button">Start</button>
         </div>
     </body>
 
@@ -23,20 +29,28 @@
         array = randomArray(10, 20);
         mergeSort2(array);
 
-        for (i=0; i <9; i++){
-            var placement = 0;
-            document.getElementById("outer-div").innerHTML += "<div id = 'row" + i + "' style = 'display:flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px'>";
-            console.log(returnLeft(i).length);
-            for(j = 0; j < returnLeft(i).length; j++) {
-                document.getElementById("row" + i).innerHTML += "<div id = 'box" + placement + "' class = 'box'><div id = 'item" + placement + "' class = 'item' draggable = 'true'>" + returnLeft(i)[j] + "</div></div>";
-                placement += 1;
-            }
-            console.log(returnRight(i).length);
-            for(j = 0; j < returnRight(i).length; j++) {
-                document.getElementById("row" + i).innerHTML += "<div id = 'box" + placement + "' class = 'box'><div id = 'item" + placement + "' class = 'item' draggable = 'true'>" + returnRight(i)[j] + "</div></div>";
-                placement += 1;
-            }
+        for(i = 0; i < returnFinishedArray().length; i++) {
+            document.getElementById("outer-div").innerHTML += (returnFinishedArray()[i]) + "<br>";
         }
+
+        /*document.getElementById("checkButton").addEventListener('click', function() {
+        if(start == true) {
+            document.getElementById("checkButton").innerHTML = "Check";
+            start = false;
+        }
+
+        var placement = 0;
+        document.getElementById("outer-div").innerHTML = ""; 
+        for(j = 0; j < left.length; j++) {
+            document.getElementById("outer-div").innerHTML += "<div id = 'box" + placement + "' class = 'box'><div id = 'item" + placement + "' class = 'item' draggable = 'true'>" + left[j] + "</div></div>";
+            placement += 1;
+            //document.getElementById("row" + i).innerHTML += "<div id = 'box" + placement + "' class = 'box'><div id = 'item" + placement + "' class = 'item' draggable = 'true'>" + returnLeftSplit(i)[j] + "</div></div>";
+        }
+        for(j = 0; j < right.length; j++) {
+            document.getElementById("outer-div").innerHTML += "<div id = 'box" + placement + "' class = 'box'><div id = 'item" + placement + "' class = 'item' draggable = 'true'>" + right[j] + "</div></div>";
+            placement += 1;
+        }
+        });*/
 
     </script>
 

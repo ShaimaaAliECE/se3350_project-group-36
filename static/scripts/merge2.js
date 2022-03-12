@@ -3,6 +3,8 @@ var side = 0;
 
 let leftSplit = [];
 let rightSplit = [];
+finishedArray = [];
+stepCounter = 0;
 var split_counter = 0;
 let newMerge = [];
 var merge_counter = 0;
@@ -36,12 +38,18 @@ function merge2(left, right) {
     }
     side += 1;
     
-    
+    finishedArray[stepCounter] = [1, ...sortedArr, ...left, ...right];
+    stepCounter++;
+
     return [...sortedArr, ...left, ...right];
   }
 
   
   function mergeSort2(arr) {
+
+    finishedArray[stepCounter] = [0, ...arr];
+    stepCounter++;
+
     const half = Math.ceil(arr.length / 2);
   
     // the base case is array length <=1
@@ -77,4 +85,8 @@ function merge2(left, right) {
 
 function returnNewMerge(mergeLevel){
   return newMerge[mergeLevel];
+}
+
+function returnFinishedArray() {
+  return finishedArray;
 }
