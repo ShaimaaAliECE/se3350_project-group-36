@@ -3,9 +3,12 @@ var side = 0;
 
 let leftSplit = [];
 let rightSplit = [];
-var split_counter = 0;
+let mergeSplit = [];
+split_counter = 0;
 let newMerge = [];
 var merge_counter = 0;
+check = false;
+start = true;
 
 
 function merge2(left, right) {
@@ -25,7 +28,7 @@ function merge2(left, right) {
     // use spread operator and create a new array, combining the three arrays
     //console.log("<br>merge into: " + [...sortedArr, ...left, ...right]);
     newMerge[merge_counter] = [...sortedArr, ...left, ...right];
-    //document.write("<br>merge into: " + newMerge[merge_counter]);
+    document.write("<br>merge into: " + newMerge[merge_counter]);
     merge_counter++;
 
     //tracks where in the array the split happens
@@ -36,14 +39,15 @@ function merge2(left, right) {
     }
     side += 1;
     
-    
     return [...sortedArr, ...left, ...right];
   }
 
   
-  function mergeSort2(arr) {
+  function mergeSort2(arr, givenCheck) {
     const half = Math.ceil(arr.length / 2);
   
+    check = givenCheck;
+
     // the base case is array length <=1
     if (arr.length <= 1) {
       return arr;
@@ -57,11 +61,33 @@ function merge2(left, right) {
         position -= 1;
     }
 
+    document.getElementById("checkButton").addEventListener('click', function() {
+      if(start == true) {
+        document.getElementById("checkButton").innerHTML = "Check"
+      }
+
+      if(check == true) {
+        var placement = 0;
+
+        for(j = 0; j < left.length; j++) {
+          document.getElementById("outer-div").innerHTML += "<div id = 'box" + placement + "' class = 'box' draggable = 'true'><div id = 'item" + placement + "' class = 'item' draggable = 'true'>" + left[j] + "</div></div>";
+          placement += 1;
+        }
+  
+        for(j = 0; j < right.length; j++) {
+          document.getElementById("outer-div").innerHTML += "<div id = 'box" + placement + "' class = 'box' draggable = 'true'><div id = 'item" + placement + "' class = 'item' draggable = 'true'>" + right[j] + "</div></div>";
+          placement += 1;
+        }
+        check = false;
+        return merge2(mergeSort2(left, check), mergeSort2(right, check)); //returns the fully sorted version of the original, full array
+      }
+    });
+    
+    
     leftSplit[split_counter] = [...left]; //copies the left half of the current array being split into another array
     rightSplit[split_counter] = [...right]; //copies the right half of the current array being split into another array
     split_counter++
     
-    return merge2(mergeSort2(left), mergeSort2(right)); //returns the fully sorted version of the original, full array
   }
 
 

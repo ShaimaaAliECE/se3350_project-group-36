@@ -15,15 +15,21 @@
     </head>
 
     <body>
-        <div id = "outer-div" style = "display:flex; flex-direction: column; justify-content: center; align-items: center; gap: 50px">
+        <div id = "outer-div" style = "display:flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px">
+        </div>
+        <div style = "display:flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px">
+            <button id = "backButton" class = "small_button">Back</button>
+            <div class = "box">
+            </div>
+            <button id = "checkButton" class = "small_button">Start</button>
         </div>
     </body>
 
     <script>
         array = randomArray(10, 20);
-        mergeSort2(array);
+        mergeSort2(array, true);
 
-        for (i=0; i <9; i++){
+        /*for (i=0; i <9; i++){
             var placement = 0;
             document.getElementById("outer-div").innerHTML += "<div id = 'row" + i + "' style = 'display:flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px'>";
             console.log(returnLeft(i).length);
@@ -36,7 +42,7 @@
                 document.getElementById("row" + i).innerHTML += "<div id = 'box" + placement + "' class = 'box'><div id = 'item" + placement + "' class = 'item' draggable = 'true'>" + returnRight(i)[j] + "</div></div>";
                 placement += 1;
             }
-        }
+        }*/
 
     </script>
 
