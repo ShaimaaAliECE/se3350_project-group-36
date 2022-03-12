@@ -14,15 +14,29 @@
         <script type = "text/javascript" src = '..\..\scripts\merge2.js'></script>
     </head>
 
+    <body>
+        <div id = "outer-div" style = "display:flex; flex-direction: column; justify-content: center; align-items: center; gap: 50px">
+        </div>
+    </body>
+
     <script>
         array = randomArray(10, 20);
         mergeSort2(array);
 
         for (i=0; i <9; i++){
-            document.write("<br>left split: " + returnLeft(i));
-            document.write("<br>right split: " + returnRight(i));
+            var placement = 0;
+            document.getElementById("outer-div").innerHTML += "<div id = 'row" + i + "' style = 'display:flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px'>";
+            console.log(returnLeft(i).length);
+            for(j = 0; j < returnLeft(i).length; j++) {
+                document.getElementById("row" + i).innerHTML += "<div id = 'box" + placement + "' class = 'box'><div id = 'item" + placement + "' class = 'item' draggable = 'true'>" + returnLeft(i)[j] + "</div></div>";
+                placement += 1;
+            }
+            console.log(returnRight(i).length);
+            for(j = 0; j < returnRight(i).length; j++) {
+                document.getElementById("row" + i).innerHTML += "<div id = 'box" + placement + "' class = 'box'><div id = 'item" + placement + "' class = 'item' draggable = 'true'>" + returnRight(i)[j] + "</div></div>";
+                placement += 1;
+            }
         }
-
 
     </script>
 
