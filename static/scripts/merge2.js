@@ -4,8 +4,7 @@ var side = 0;
 let leftSplit = [];
 let rightSplit = [];
 var split_counter = 0;
-let leftMerge = [];
-let rightMerge = [];
+let newMerge = [];
 var merge_counter = 0;
 
 
@@ -22,8 +21,14 @@ function merge2(left, right) {
         //console.log("<br>mergedright: " + sortedArr);
       }
     }
+
     // use spread operator and create a new array, combining the three arrays
-    console.log("<br>merge into: " + [...sortedArr, ...left, ...right]);
+    //console.log("<br>merge into: " + [...sortedArr, ...left, ...right]);
+    newMerge[merge_counter] = [...sortedArr, ...left, ...right];
+    //document.write("<br>merge into: " + newMerge[merge_counter]);
+    merge_counter++;
+
+    //tracks where in the array the split happens
     if(side == 3) {
         position += 4;
     } else {
@@ -31,7 +36,7 @@ function merge2(left, right) {
     }
     side += 1;
     
-
+    
     return [...sortedArr, ...left, ...right];
   }
 
@@ -68,4 +73,8 @@ function merge2(left, right) {
  //function to return the right side of an array after splitting
  function returnRightSplit(splitLevel){
   return rightSplit[splitLevel];
+}
+
+function returnNewMerge(mergeLevel){
+  return newMerge[mergeLevel];
 }
