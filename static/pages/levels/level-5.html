@@ -12,20 +12,19 @@
 
         <script type = "text/javascript" src = '..\..\scripts\array-generation.js'></script>
         <script type = "text/javascript" src = '..\..\scripts\merge2.js'></script>
+        <script type = "text/javascript" src = '..\..\scripts\timer.js'></script>
     </head>
 
+    <button onclick="levelStart()">Start</button>
+    <button onclick="levelEnd()">Finish</button>
+    <button onclick="calcTime()">Calculate</button>
+    <button onclick="printTime()">See time</button>
+
+
     <script>
-        array = randomArray(10, 20);
-        mergeSort2(array);
-
-        for (i=0; i <9; i++){
-            document.write("<br>left split: " + returnLeftSplit(i));
-            document.write("<br>right split: " + returnRightSplit(i));
-            //document.write("<br>merge into: " + returnNewMerge(i));
-
-           // if (returnLeftSplit(i).length == )
-        }
-
+    function printTime(){
+        document.write(calcTime());
+    }
 
     </script>
 
