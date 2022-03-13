@@ -3,7 +3,6 @@ const splits = document.querySelectorAll('.split');
 const boxes = document.querySelectorAll('.box');
 const splitareas = document.querySelectorAll('.box2');
 
-
 items.forEach(item => {  
     addEventListener('dragstart', dragStart);
 });
@@ -50,22 +49,22 @@ function drop(e) {
     //e.target.classList.remove('drag-over');
 
     const id = e.dataTransfer.getData('text/plain');
-    const draggable = document.getElementById(id);
 
-    // FIX SO WE CAN  DRAGGING INTO THE FUCKING UNKNOWN
-    for(i = 1; i < 10; i++) {
-        if(id == "split" && e.target.id == "splitArea" + i) { 
-            const copy = document.getElementById(id).cloneNode(true);
-            copy.id = "newSplit";
-            e.target.appendChild(copy);
-            //  ?? break;
-        } 
-    } 
-
-    for(i = 0; i < 10; i++) {
-        if(e.target.id == "box" + i) {
-            e.target.appendChild(draggable);
+    if(id == "split") { 
+        for(i = 1; i < 10; i++) {
+            if(e.target.id == "splitArea" + i && e.target.childElementCount < 1) {
+                const copy = document.getElementById(id).cloneNode(true);
+                copy.id = "newSplit";
+                copy.draggable = false;
+                copy.addEventListener('click', function(e) { 
+                    e.target.remove();
+                });
+                e.target.appendChild(copy);
+            }
         }
+    } else if(e.target.className == "box" && e.target.childElementCount < 1) {
+        const draggable = document.getElementById(id);
+        e.target.appendChild(draggable);
     }
 
     //draggable.classList.remove('hide');

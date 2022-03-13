@@ -58,6 +58,9 @@ function merge2(left, right) {
       } else {
         position -= 1;
       } 
+    }
+
+    if(arr.length > 2) {
       finishedArray[stepCounter] = [position, ...arr];
       stepCounter++;
     }
