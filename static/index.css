@@ -65,6 +65,14 @@ footer {
     text-align: center;
 }
 
+.footer2 {
+    bottom: 1%;
+    right: 1%;
+    font-size: 16px;
+    position: absolute;
+    text-align: center;
+}
+
 .box {
     display: flex;
     justify-content: center;

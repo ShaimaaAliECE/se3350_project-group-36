@@ -43,7 +43,7 @@ function countUp(){
       minute = "0" + minute;
     if(seconds < 10)
       seconds = "0" + seconds;
-    document.getElementById("timer").innerHTML = hour + ":" + minute + ":" + seconds;
+    document.getElementById("timer").innerHTML = "Time: " + hour + ":" + minute + ":" + seconds;
 }
 
 //function to timeout user after a certain amount of inactivity
