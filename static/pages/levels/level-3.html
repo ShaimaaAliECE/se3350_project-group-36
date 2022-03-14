@@ -198,6 +198,11 @@
             }
         });
 
+        
+        document.getElementById('backButton').addEventListener('click', function() {
+            document.location.href = '/level-select';
+        });
+
         function splitChecker() {
             for(i = 0; i < 9; i++) {
                 if(document.getElementById("splitArea" + (i + 1)).childElementCount > 0) {
