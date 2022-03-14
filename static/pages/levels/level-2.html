@@ -171,15 +171,17 @@
                     document.getElementById("stepCorrect").innerHTML = "✔️";
                     document.getElementById("correct").play();
                     checkStep++;
-                    if(allSteps()[checkStep][0] > 0 && checkStep < allSteps().length) {
-                        document.getElementById("stepTracker").innerHTML = "Step " + (checkStep + 1) + ": Split at position " + (allSteps()[checkStep][0]);
-                    } else {
-                        for(i = 0; i < mergeSplitRemoveArray.length; i ++) {
-                            if(mergeStep == mergeSplitRemoveArray[i]) {
-                                document.getElementById("stepTracker").innerHTML = "Step " + (checkStep + 1) + ": Merge the split at position " + mergePosition[mergeStep] + " and remove the split";
-                                break;
-                            } else {
-                                document.getElementById("stepTracker").innerHTML = "Step " + (checkStep + 1) + ": Merge the split at position " + mergePosition[mergeStep];
+                    if(checkStep < allSteps().length) {
+                        if(allSteps()[checkStep][0] > 0) {
+                            document.getElementById("stepTracker").innerHTML = "Step " + (checkStep + 1) + ": Split at position " + (allSteps()[checkStep][0]);
+                        } else {
+                            for(i = 0; i < mergeSplitRemoveArray.length; i ++) {
+                                if(mergeStep == mergeSplitRemoveArray[i]) {
+                                    document.getElementById("stepTracker").innerHTML = "Step " + (checkStep + 1) + ": Merge the split at position " + mergePosition[mergeStep] + " and remove the split";
+                                    break;
+                                } else {
+                                    document.getElementById("stepTracker").innerHTML = "Step " + (checkStep + 1) + ": Merge the split at position " + mergePosition[mergeStep];
+                                }
                             }
                         }
                     }
