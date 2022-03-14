@@ -4,6 +4,7 @@ time_spent = 0;
 max_idle_time = 300;
 totalSeconds = 0;
 
+//called when level starts
 function levelStart(){
     start_time = Date.now()
     console.log(start_time);
@@ -12,6 +13,7 @@ function levelStart(){
     return start_time;
 }
 
+//called when level finishes
 function levelEnd(){
     end_time = Date.now();
     console.log(end_time);
@@ -19,6 +21,7 @@ function levelEnd(){
     return end_time;
 }
 
+//function to calculate time 
 function calcTime(){
     if (start_time == 0 || end_time == 0){
         return null;
@@ -28,26 +31,20 @@ function calcTime(){
     return time_spent;
 }
 
-
+//function to show timer on screen
 function countUp(){
     ++totalSeconds;
-    var hour = Math.floor(totalSeconds /3600);
+    var hour = Math.floor(totalSeconds/3600);
     var minute = Math.floor((totalSeconds - hour*3600)/60);
     var seconds = totalSeconds - (hour*3600 + minute*60);
     if(hour < 10)
-      hour = "0"+hour;
+      hour = "0" + hour;
     if(minute < 10)
-      minute = "0"+minute;
+      minute = "0" + minute;
     if(seconds < 10)
-      seconds = "0"+seconds;
+      seconds = "0" + seconds;
     document.getElementById("timer").innerHTML = hour + ":" + minute + ":" + seconds;
 }
-
-
-
-
-
-
 
 //function to timeout user after a certain amount of inactivity
 function timeOut(){
@@ -62,10 +59,9 @@ function timeOut(){
         idle_timout = setTimeout(
             function redirect(){
                 alert ("You have been redirected to the home page due to " + max_idle_time + " seconds of inactivity.")
-                location.href = '/', max_idle_time * 1000;
+                location.href = '/'
             } 
-        ,max_idle_time * 1000);
-
+        ,max_idle_time*1000);
     }
     resetIdle();
 
