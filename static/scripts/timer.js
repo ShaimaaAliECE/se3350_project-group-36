@@ -1,18 +1,21 @@
 start_time = 0;
 end_time = 0;
 time_spent = 0;
-max_idle_time = 10;
+max_idle_time = 300;
+totalSeconds = 0;
 
 function levelStart(){
     start_time = Date.now()
     console.log(start_time);
     timeOut();
+    timerVar = setInterval(countUp, 1000);
     return start_time;
 }
 
 function levelEnd(){
     end_time = Date.now();
     console.log(end_time);
+    clearInterval(timerVar);
     return end_time;
 }
 
@@ -24,6 +27,27 @@ function calcTime(){
     console.log(time_spent);
     return time_spent;
 }
+
+
+function countUp(){
+    ++totalSeconds;
+    var hour = Math.floor(totalSeconds /3600);
+    var minute = Math.floor((totalSeconds - hour*3600)/60);
+    var seconds = totalSeconds - (hour*3600 + minute*60);
+    if(hour < 10)
+      hour = "0"+hour;
+    if(minute < 10)
+      minute = "0"+minute;
+    if(seconds < 10)
+      seconds = "0"+seconds;
+    document.getElementById("timer").innerHTML = hour + ":" + minute + ":" + seconds;
+}
+
+
+
+
+
+
 
 //function to timeout user after a certain amount of inactivity
 function timeOut(){
