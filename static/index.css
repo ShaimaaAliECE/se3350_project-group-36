@@ -28,7 +28,33 @@
     text-align: center;
     min-height: 95vh;
     flex-direction: column;
-  }
+}
+
+.small_flex {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+}
+
+.big_flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0px;
+    overflow: auto;
+    width: 1500px
+}
+
+.column_flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+}
 
 body {
     font-family: 'Invasion', serif;
@@ -50,11 +76,18 @@ h2 {
     margin-bottom: 0px;
 }
 
+h3 {
+    font-size: 16px;
+    padding: 0 0;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
 p {
     font-size: 16px;
     padding: 0 0;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 
 footer {
@@ -79,6 +112,7 @@ footer {
     align-items: center;
     text-align: center;
     background-color: #0f0f0f;
+    min-width: 55px;
     width: 55px;
     border: 6px solid white;
     height: 50px;
@@ -90,11 +124,13 @@ footer {
 .box2 {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-self: flex-end;
     text-align: center;
     background-color: #1a1a1a;
+    min-width: 40px;
     width: 40px;
     height: 92px;
+    margin-bottom: 14px;
 }
 
 .item {

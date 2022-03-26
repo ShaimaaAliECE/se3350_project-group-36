@@ -51,7 +51,7 @@ function drop(e) {
     const id = e.dataTransfer.getData('text/plain');
 
     if(id == "split") { 
-        for(i = 1; i < 10; i++) {
+        for(i = 1; i < 50; i++) {
             if(e.target.id == "splitArea" + i && e.target.childElementCount < 1) {
                 const copy = document.getElementById(id).cloneNode(true);
                 copy.id = "newSplit";
