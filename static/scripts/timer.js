@@ -51,7 +51,7 @@ function timeStep(step){
 }
 
 function trackFinalStats(level){
-    level_time[level] = calcTime;
+    level_time[level] = calcTime();
     all_levels_step_time[level] = [...step_time];
     console.log (all_levels_step_time[level]);
 }
