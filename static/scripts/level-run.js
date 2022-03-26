@@ -10,11 +10,14 @@ mergeCorrect = true;
 
 mistakeCheck = true;
 mistakeCount = 0;
+
+levelNum = 0;
 levelDone = false;
 levelCorrect = true;
 
 
 function levelSet(level) {
+    levelNum = level;
     if(level == 3 || level == 2) { 
         size = 9;
         array = randomArray(10, 20); 
@@ -42,6 +45,9 @@ function sharedFunctions() {
     mergeSort2(array);
     for(i = 0; i < allSteps()[0].length - 1; i++) {
         document.getElementById("item" + i).innerHTML = allSteps()[0][i + 1]; 
+    }
+    if(levelNum == 2) {
+        document.getElementById("stepTracker").innerHTML += "Step " + (0 + 1) + ": Split at position " + (allSteps()[0][0]);
     }
 }
 
@@ -89,20 +95,26 @@ function buttonPress() {
         }
 
         if(mistakeCheck == true) {
-            
-            console.log(splitRemove);
-            console.log(splitArray);
             document.getElementById("stepCorrect").innerHTML = "✔️";
             document.getElementById("correct").play();
             checkStep++;
+
+            if(levelNum == 2) {
+                if(checkStep < allSteps().length) {
+                    if(allSteps()[checkStep][0] > 0) {
+                        document.getElementById("stepTracker").innerHTML = "Step " + (checkStep + 1) + ": Split at position " + (allSteps()[checkStep][0]);
+                    } else {
+                        document.getElementById("stepTracker").innerHTML = "Step " + (checkStep + 1) + ": Merge the split at position " + (splitRemove[splitRemove.length - 1] + 1) + " and remove the split";        
+                    }
+                }
+            }
+
             if(checkStep >= allSteps().length) {
                 levelDone = true;
                 levelCorrect = true;
             }
             reset();
         } else {
-            console.log(splitRemove);
-            console.log(splitArray);
             document.getElementById("mistakeCounter").innerHTML = "Mistakes: " + mistakeCount;
             document.getElementById("stepCorrect").innerHTML = "❌";
             document.getElementById("incorrect").play();
