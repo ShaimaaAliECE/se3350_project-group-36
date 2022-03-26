@@ -9,5 +9,31 @@
         <link rel = "stylesheet" href = "index.css">
 
         <Title>Level 5</Title>
+
+        <script type = "text/javascript" src = '..\..\scripts\array-generation.js'></script>
+        <script type = "text/javascript" src = '..\..\scripts\merge2.js'></script>
+        <script type = "text/javascript" src = '..\..\scripts\hog-set.js'></script>
+        <script type = "text/javascript" src = '..\..\scripts\timer.js'></script>
+        <script type = "text/javascript" src = '..\..\scripts\user-stats.js'></script>
     </head>
+
+    
+    <button onclick="levelStart()">start</button>
+    <button onclick="levelEnd()">end</button>
+
+    <button onclick="timeStep(0)">timestep0</button>
+    <button onclick="timeStep(1)">timestep1</button>
+    <button onclick="timeStep(2)">timestep2</button>
+
+    <button onclick="trackFinalStats(0)">finaltimes0</button>
+    <button onclick="trackFinalStats(1)">finaltimes1</button>
+
+    <button onclick="addcorrect(0)">correct0</button>
+    <button onclick="addIncorrect(0)">incorrect0</button>
+    <button onclick="addcorrect(1)">correct1</button>
+    <button onclick="addIncorrect(1)">incorrect1</button>
+
+    <button onclick="printAnswerStats()">printanswerstats</button>
+    <button onclick="printTimerStats()">printtimerstats</button>
+
 </html>
