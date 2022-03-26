@@ -10,55 +10,88 @@
 
         <Title>Level 3</Title>
 
+        <link rel="icon" type="image/x-icon" href="..\..\favicon.png">
+
         <script type = "text/javascript" src = '..\..\scripts\array-generation.js'></script>
-        <script type = "text/javascript" src = '..\..\scripts\merge2.js'></script>
+        <script type = "text/javascript" src = '..\..\scripts\merge-sort.js'></script>
         <script type = "text/javascript" src = '..\..\scripts\hog-set.js'></script>
         <script type = "text/javascript" src = '..\..\scripts\timer.js'></script>
+        <script type = "text/javascript" src = '..\..\scripts\level-run.js'></script>
     </head>
 
     <body> 
         <div class = "center_screen">
             <h2>Level 3</h2>
             <p id = "stepTracker">Good Luck!</p>
-            <div id = "inner-div" style = "display:flex; flex-direction: row; justify-content: center; align-items: center; gap: 0px">
-                <div id = "box0" class = "box">
-                    <div id = "item0" class = "item" draggable = "true"></div>
+            <div id = "inner-div" class = "small_flex">
+                <div class = "column-flex">
+                    <h3>1</h3>
+                    <div id = "box0" class = "box">
+                        <div id = "item0" class = "item" draggable = "true"></div>
+                    </div>
                 </div>
                 <div id = "splitArea1" class = "box2"></div>
-                <div id = "box1" class = "box">
-                    <div id = "item1" class = "item" draggable = "true"></div>
+                <div class = "column-flex">
+                    <h3>2</h3>
+                    <div id = "box1" class = "box">
+                        <div id = "item1" class = "item" draggable = "true"></div>
+                    </div>
                 </div>
                 <div id = "splitArea2" class = "box2"></div>
-                <div id = "box2" class = "box">
-                    <div id = "item2" class = "item" draggable = "true"></div>
+                <div class = "column-flex">
+                    <h3>3</h3>
+                    <div id = "box2" class = "box">
+                        <div id = "item2" class = "item" draggable = "true"></div>
+                    </div>
                 </div>
                 <div id = "splitArea3" class = "box2"></div>
-                <div id = "box3" class = "box">
-                    <div id = "item3" class = "item" draggable = "true"></div>
+                <div class = "column-flex">
+                    <h3>4</h3>
+                    <div id = "box3" class = "box">
+                        <div id = "item3" class = "item" draggable = "true"></div>
+                    </div>
                 </div>
                 <div id = "splitArea4" class = "box2"></div>
-                <div id = "box4" class = "box">
-                    <div id = "item4" class = "item" draggable = "true"></div>
+                <div class = "column-flex">
+                    <h3>5</h3>
+                    <div id = "box4" class = "box">
+                        <div id = "item4" class = "item" draggable = "true"></div>
+                    </div>
                 </div>
                 <div id = "splitArea5" class = "box2"></div>
-                <div id = "box5" class = "box">
-                    <div id = "item5" class = "item" draggable = "true"></div>
+                <div class = "column-flex">
+                    <h3>6</h3>
+                    <div id = "box5" class = "box">
+                        <div id = "item5" class = "item" draggable = "true"></div>
+                    </div>
                 </div>
                 <div id = "splitArea6" class = "box2"></div>
-                <div id = "box6" class = "box">
-                    <div id = "item6" class = "item" draggable = "true"></div>
+                <div class = "column-flex">
+                    <h3>7</h3>
+                    <div id = "box6" class = "box">
+                        <div id = "item6" class = "item" draggable = "true"></div>
+                    </div>
                 </div>
                 <div id = "splitArea7" class = "box2"></div>
-                <div id = "box7" class = "box">
-                    <div id = "item7" class = "item" draggable = "true"></div>
+                <div class = "column-flex">
+                    <h3>8</h3>
+                    <div id = "box7" class = "box">
+                        <div id = "item7" class = "item" draggable = "true"></div>
+                    </div>
                 </div>
                 <div id = "splitArea8" class = "box2"></div>
-                <div id = "box8" class = "box">
-                    <div id = "item8" class = "item" draggable = "true"></div>
+                <div class = "column-flex">
+                    <h3>9</h3>
+                    <div id = "box8" class = "box">
+                        <div id = "item8" class = "item" draggable = "true"></div>
+                    </div>
                 </div>
                 <div id = "splitArea9" class = "box2"></div>
-                <div id = "box9" class = "box">
-                    <div id = "item9" class = "item" draggable = "true"></div>
+                <div class = "column-flex">
+                    <h3>10</h3>
+                    <div id = "box9" class = "box">
+                        <div id = "item9" class = "item" draggable = "true"></div>
+                    </div>
                 </div>
             </div>
             <div style = "display:flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px">
@@ -69,7 +102,7 @@
             </div>
             <h2 id = "stepCorrect">🦔</h2>
         </div>
-        <footer id = "mistakeCounter"2>Mistakes: 0</footer>
+        <footer id = "mistakeCounter">Mistakes: 0</footer>
         <footer id = "timer" class = "footer2">Time: 00:00:00</footer>
         <audio id = "correct" src = "..\..\correct.mp3"></audio>
         <audio id = "incorrect" src = "..\..\incorrect.mp3"></audio>
@@ -78,152 +111,14 @@
     <script src = '..\..\scripts\drag-drop.js'></script>
 
     <script>
-        array = randomArray(10, 20);
-        checkStep = 0;
-
-        splitCorrect = true;
-        splitArray = [];
-        lastSplit = 0;
-        for(i = 0; i < 9; i ++) {
-            splitArray[i] = 0;
-        }
-        splitCheckArray = [...splitArray];
-
-        mergePosition = [0, 0, 3, 0, 5, 5, 8, 5, 0];
-        mergeStep = 0;
-        mergeCorrect = true;
-        mergeArray = [...array];
-        mergeCheckArray = [...mergeArray];
-        mergeSplitRemoveArray = [1, 3, 5, 7, 8]
-
-        mistakeCheck = true;
-        mistakeCount = 0;
-        levelDone = false;
-        levelCorrect = true;
-
-        levelStart();
-
-        mergeSort2(array);
-
-        for(i = 0; i < allSteps()[0].length - 1; i++) {
-            document.getElementById("item" + i).innerHTML = allSteps()[0][i + 1]; 
-        }
+        levelSet(3);
 
         document.getElementById("checkButton").addEventListener('click', function() {
-            if(levelDone == true){
-                    document.location.href = '/level-select';
-            } else {
-                if(allSteps()[checkStep][0] > 0) {
-                    if(lastSplit == 0 && splitArray[4] > 0) {
-                        lastSplit = allSteps()[checkStep][0] - 1;
-                    } else if(lastSplit != 0 && splitArray[4] > 0) {
-                        lastSplit2 = allSteps()[checkStep][0] - 1;
-                    }
-                    splitArray[allSteps()[checkStep][0] - 1] = 1;
-                    splitChecker();
-                    
-                } else { // 0, 0, 3, 0, 5, 5, 8, 5, 0
-                    for(i = 0; i < (allSteps()[checkStep].length - 1); i++) { // for the length of numbers to be merged
-                        mergeArray[i + mergePosition[mergeStep]] = allSteps()[checkStep][i + 1]; // assign the merged numbers to the merge array in the right position
-                        if(document.getElementById("box" + (i + mergePosition[mergeStep])).children[0].innerHTML == allSteps()[checkStep][i + 1]) { // check if the merged numbers equal the numbers in the boxes
-                            mergeCorrect = true;
-                        } else { // if not, set mergeCorrect to false and exit
-                            mergeCorrect = false;
-                            break;
-                        }
-                    }
-
-                    if(mergeCorrect == true) {
-                        for(i = 0; i < mergeSplitRemoveArray.length; i ++) {
-                            if(mergeStep == mergeSplitRemoveArray[i]) {
-                                if(splitArray[lastSplit2] == 0) {
-                                    splitArray[lastSplit] = 0;
-                                    lastSplit = 0;
-                                    lastSplit2 = 0;
-                                } else {
-                                    splitArray[lastSplit2] = 0;
-                                }
-                                if(mergeStep == 8) {
-                                    splitArray[4] = 0;
-                                }
-                                break;
-                            } 
-                        }
-                        splitChecker();
-                        if(mistakeCheck == false) {
-                            mergeCorrect = false;
-                            mistakeCount--;
-                        }
-                    } 
-
-                    if(mergeCorrect == true) { // if after all that, mergeCorrect is true
-                        mistakeCheck = true;
-                        mergeStep++; // increase the merge step and check step
-                    } else {
-                        mistakeCheck = false;
-                        mistakeCount++;
-                    }
-                }
-
-                if(mistakeCheck == true) {
-                    document.getElementById("stepCorrect").innerHTML = "✔️";
-                    document.getElementById("correct").play();
-                    checkStep++;
-                    if(checkStep >= allSteps().length) {
-                        levelDone = true;
-                        levelCorrect = true;
-                    }
-                    reset();
-                } else {
-                    document.getElementById("mistakeCounter").innerHTML = "Mistakes: " + mistakeCount;
-                    document.getElementById("stepCorrect").innerHTML = "❌";
-                    document.getElementById("incorrect").play();
-                    if(mistakeCount > 4) {
-                        levelDone = true;
-                        levelCorrect = false;
-                    }
-                    reset();
-                } 
-                if(levelDone == true) {
-                    if(levelCorrect == true) {
-                        levelEnd();
-                        document.getElementById("stepTracker").innerHTML = "Level Done! Time Taken: " + calcTime();;
-                        document.getElementById("checkButton").innerHTML = "Next";
-                    } else {
-                        levelEnd();
-                        document.getElementById("stepTracker").innerHTML = "Level Failed! 5 Mistakes Made...";
-                        document.getElementById("checkButton").innerHTML = "Next";
-                    }
-                }
-            }
+            buttonPress();
         });
 
-        
         document.getElementById('backButton').addEventListener('click', function() {
             document.location.href = '/level-select';
         });
-
-        function splitChecker() {
-            for(i = 0; i < 9; i++) {
-                if(document.getElementById("splitArea" + (i + 1)).childElementCount > 0) {
-                    splitCheckArray[i] = 1;
-                } else {
-                    splitCheckArray[i] = 0;
-                }
-                if(splitCheckArray[i] != splitArray[i]) {
-                    splitCorrect = false;
-                    break;
-                } else {
-                    splitCorrect = true;
-                }
-            }
-            if(splitCorrect == true) {
-                mistakeCheck = true;
-            } else {
-                mistakeCheck = false;
-                mistakeCount++;
-            }
-        }
-
     </script>  
 </html>
