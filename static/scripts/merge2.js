@@ -60,7 +60,7 @@ function merge2(left, right) {
       } 
     }
 
-    if(arr.length > 2) {
+    if(arr.length > 1) {
       finishedArray[stepCounter] = [position, ...arr];
       stepCounter++;
     }

@@ -2,6 +2,7 @@ checkStep = 0;
 
 splitCorrect = true;
 splitArray = [];
+splitRemove = [0];
 lastSplit = 0;
 
 mergeStep = 0;
@@ -18,7 +19,6 @@ function levelSet(level) {
         size = 9;
         array = randomArray(10, 20); 
         mergePosition = [0, 0, 3, 0, 5, 5, 8, 5, 0]; 
-        mergeSplitRemoveArray = [1, 3, 5, 7, 8] 
         sharedFunctions();
     } else if(level == 4) {
         size = 19;
@@ -50,15 +50,14 @@ function buttonPress() {
         document.location.href = '/level-select';
     } else {
         if(allSteps()[checkStep][0] > 0) {
-            if(lastSplit == 0 && splitArray[4] > 0) {
-                lastSplit = allSteps()[checkStep][0] - 1;
-            } else if(lastSplit != 0 && splitArray[4] > 0) {
-                lastSplit2 = allSteps()[checkStep][0] - 1;
-            }
+            lastSplit = allSteps()[checkStep][0] - 1;
             splitArray[allSteps()[checkStep][0] - 1] = 1;
             splitChecker();
+            if(splitCorrect == true) {
+                splitRemove.splice(splitRemove.length, 0, lastSplit);
+            }
             
-        } else { // 0, 0, 3, 0, 5, 5, 8, 5, 0
+        } else { 
             for(i = 0; i < (allSteps()[checkStep].length - 1); i++) { // for the length of numbers to be merged
                 mergeArray[i + mergePosition[mergeStep]] = allSteps()[checkStep][i + 1]; // assign the merged numbers to the merge array in the right position
                 if(document.getElementById("box" + (i + mergePosition[mergeStep])).children[0].innerHTML == allSteps()[checkStep][i + 1]) { // check if the merged numbers equal the numbers in the boxes
@@ -70,23 +69,11 @@ function buttonPress() {
             }
 
             if(mergeCorrect == true) {
-                for(i = 0; i < mergeSplitRemoveArray.length; i ++) {
-                    if(mergeStep == mergeSplitRemoveArray[i]) {
-                        if(splitArray[lastSplit2] == 0) {
-                            splitArray[lastSplit] = 0;
-                            lastSplit = 0;
-                            lastSplit2 = 0;
-                        } else {
-                            splitArray[lastSplit2] = 0;
-                        }
-                        if(mergeStep == 8) {
-                            splitArray[4] = 0;
-                        }
-                        break;
-                    } 
-                }
+                splitArray[splitRemove[splitRemove.length - 1]] = 0;
+                splitRemove.splice(splitRemove.length - 1, 1);
                 splitChecker();
                 if(mistakeCheck == false) {
+                    splitRemove.splice(splitRemove.length, 0, lastSplit);
                     mergeCorrect = false;
                     mistakeCount--;
                 }
@@ -102,6 +89,9 @@ function buttonPress() {
         }
 
         if(mistakeCheck == true) {
+            
+            console.log(splitRemove);
+            console.log(splitArray);
             document.getElementById("stepCorrect").innerHTML = "✔️";
             document.getElementById("correct").play();
             checkStep++;
@@ -111,6 +101,8 @@ function buttonPress() {
             }
             reset();
         } else {
+            console.log(splitRemove);
+            console.log(splitArray);
             document.getElementById("mistakeCounter").innerHTML = "Mistakes: " + mistakeCount;
             document.getElementById("stepCorrect").innerHTML = "❌";
             document.getElementById("incorrect").play();
