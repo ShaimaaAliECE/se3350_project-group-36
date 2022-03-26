@@ -42,7 +42,7 @@ function sharedFunctions() {
     mergeArray = [...array];
     mergeCheckArray = [...mergeArray];
     levelStart();
-    mergeSort2(array);
+    mergeSort(array);
     for(i = 0; i < allSteps()[0].length - 1; i++) {
         document.getElementById("item" + i).innerHTML = allSteps()[0][i + 1]; 
     }
