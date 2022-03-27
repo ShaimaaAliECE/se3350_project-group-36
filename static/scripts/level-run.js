@@ -55,7 +55,11 @@ function sharedFunctions() {
 
 function buttonPress() {
     if(levelDone == true){
-        document.location.href = '/level-select';
+        if(levelCorrect == true) {
+            document.location.href = '/level-select';
+        } else {
+            location.reload(); 
+        }
     } else {
         if(allSteps()[checkStep][0] > 0) {
             lastSplit = allSteps()[checkStep][0] - 1;
@@ -106,7 +110,7 @@ function buttonPress() {
             document.getElementById("correct").play();
             checkStep++;
 
-            if(levelNum == 2 || levelNum == 4) {
+            if(levelNum == 2) {
                 if(checkStep < allSteps().length) {
                     if(allSteps()[checkStep][0] > 0) {
                         document.getElementById("stepTracker").innerHTML = "Step " + (checkStep + 1) + ": Split at position " + (allSteps()[checkStep][0]);
@@ -126,7 +130,7 @@ function buttonPress() {
             addIncorrect(levelNum);
             document.getElementById("stepCorrect").innerHTML = "❌";
             document.getElementById("incorrect").play();
-            if(mistakeCount > 4) {
+            if(mistakeCount > 2) {
                 levelDone = true;
                 levelCorrect = false;
             }
@@ -143,10 +147,8 @@ function buttonPress() {
             } else {
                 levelEnd();
                 trackFinalStats(levelNum);
-                saveAnswers(levelNum);
-                saveTimes(levelNum);
-                document.getElementById("stepTracker").innerHTML = "Level Failed! 5 Mistakes Made...";
-                document.getElementById("checkButton").innerHTML = "Next";
+                document.getElementById("stepTracker").innerHTML = "Level Failed! 3 Mistakes Made...";
+                document.getElementById("checkButton").innerHTML = "Retry";
             }
         }
     }

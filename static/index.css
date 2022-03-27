@@ -99,8 +99,16 @@ footer {
 }
 
 .footer2 {
-    bottom: 1%;
-    right: 1%;
+    top: 1%;
+    left: 1%;
+    font-size: 16px;
+    position: absolute;
+    text-align: center;
+}
+
+.footer3 {
+    top: 4%;
+    left: 1%;
     font-size: 16px;
     position: absolute;
     text-align: center;
