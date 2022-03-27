@@ -138,7 +138,7 @@ function buttonPress() {
             } else {
                 levelEnd();
                 trackFinalStats(levelNum);
-                document.getElementById("stepTracker").innerHTML = "Level Failed! 5 Mistakes Made...";
+                document.getElementById("stepTracker").innerHTML = "Level Failed! 3 Mistakes Made...";
                 document.getElementById("checkButton").innerHTML = "Next";
             }
         }
