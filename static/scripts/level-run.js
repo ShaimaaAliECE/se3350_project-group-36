@@ -55,7 +55,11 @@ function sharedFunctions() {
 
 function buttonPress() {
     if(levelDone == true){
-        document.location.href = '/level-select';
+        if(levelCorrect == true) {
+            document.location.href = '/level-select';
+        } else {
+            location.reload(); 
+        }
     } else {
         if(allSteps()[checkStep][0] > 0) {
             lastSplit = allSteps()[checkStep][0] - 1;
@@ -139,7 +143,7 @@ function buttonPress() {
                 levelEnd();
                 trackFinalStats(levelNum);
                 document.getElementById("stepTracker").innerHTML = "Level Failed! 3 Mistakes Made...";
-                document.getElementById("checkButton").innerHTML = "Next";
+                document.getElementById("checkButton").innerHTML = "Retry";
             }
         }
     }
