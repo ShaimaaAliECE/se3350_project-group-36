@@ -100,6 +100,9 @@ function buttonPress() {
             document.getElementById("stepCorrect").innerHTML = "✔️";
             addCorrect(levelNum);
             timeStep(checkStep);
+            //testing stuff
+            //saveAnswers(levelNum); 
+            //saveTimes(levelNum);
             document.getElementById("correct").play();
             checkStep++;
 
@@ -133,11 +136,15 @@ function buttonPress() {
             if(levelCorrect == true) {
                 levelEnd();
                 trackFinalStats(levelNum);
+                saveAnswers(levelNum);
+                saveTimes(levelNum);
                 document.getElementById("stepTracker").innerHTML = "Level Done! Time Taken: " + calcTime();;
                 document.getElementById("checkButton").innerHTML = "Next";
             } else {
                 levelEnd();
                 trackFinalStats(levelNum);
+                saveAnswers(levelNum);
+                saveTimes(levelNum);
                 document.getElementById("stepTracker").innerHTML = "Level Failed! 5 Mistakes Made...";
                 document.getElementById("checkButton").innerHTML = "Next";
             }

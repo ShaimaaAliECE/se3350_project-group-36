@@ -98,8 +98,16 @@ function timeOut(){
 }
 
 
+function saveTimes(level){
+    localStorage.setItem("level-time", level_time[level]);
+    localStorage.setItem("steps-time", all_levels_step_time[level]);
+}
+
+
 //function to print the total stats of all the levels for timing related things
 function printTimerStats(){
+    level_time = localStorage.getItem("level-time");
+    all_levels_step_time = localStorage.getItem("steps-time");
     completedLevels = all_levels_step_time.length; //checks how many levels were completed
     for (i=0; i < all_levels_step_time.length; i++){ //prints the time spent on each level and each step for every level
         console.log("level " + i + " time: " + level_time[i]);

@@ -47,6 +47,10 @@ app.get("/level-5", (req, res) => {
     res.sendFile( __dirname + "/static/" + "/pages/" + "/levels/" + "level-5.html" );
 });
 
+app.get("/stats-page", (req, res) => {
+    res.sendFile( __dirname + "/static/" + "/pages/" + "/levels/" + "stats-page.html" );
+});
+
 app.listen(3000, () => {
     console.log(`listening on port 3000`);
 });

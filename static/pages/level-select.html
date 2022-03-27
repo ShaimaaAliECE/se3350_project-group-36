@@ -26,6 +26,9 @@
             <button id = "level5" class = "big_button">Level 5</button>
             <button id = "customLevel" class = "big_button">Level X</button>
             </div>
+            <div style = "display:flex; flex-direction: row; justify-content: center; align-items: center; gap:30px">
+                <button id = "statsPage" class = "big_button">Stats</button>
+            </div>
         </div>
         <button id = "backButton" class = "back_button">Back</button> 
     </body>
@@ -48,6 +51,10 @@
 
         document.getElementById('level5').addEventListener('click', function() {
             document.location.href = '/level-5';
+        });
+
+        document.getElementById('statsPage').addEventListener('click', function() {
+            document.location.href = '/stats-page';
         });
 
         document.getElementById('backButton').addEventListener('click', function() {

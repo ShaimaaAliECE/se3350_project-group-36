@@ -17,8 +17,15 @@ function addIncorrect(level){
     console.log (incorrectAnswers[level]);
 }
 
+function saveAnswers(level){
+    localStorage.setItem("corrects", correctAnswers[level]);
+    localStorage.setItem("incorrects", incorrectAnswers[level]);
+}
+
 //function to print the final stats including all levels
 function printAnswerStats(){
+    correctAnswers = localStorage.getItem("corrects");
+    incorrectAnswers = localStorage.getItem("incorrects");
     completedLevels = correctAnswers.length; //checks how many levels have been completed
     for (i=0; i<=completedLevels; i++){
         if (correctAnswers[i] == 0 & incorrectAnswers[i] == 0){ //checks to make sure its not returning empty stats
