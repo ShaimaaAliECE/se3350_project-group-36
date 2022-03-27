@@ -103,7 +103,7 @@ function buttonPress() {
             document.getElementById("correct").play();
             checkStep++;
 
-            if(levelNum == 2 || levelNum == 4) {
+            if(levelNum == 2) {
                 if(checkStep < allSteps().length) {
                     if(allSteps()[checkStep][0] > 0) {
                         document.getElementById("stepTracker").innerHTML = "Step " + (checkStep + 1) + ": Split at position " + (allSteps()[checkStep][0]);
