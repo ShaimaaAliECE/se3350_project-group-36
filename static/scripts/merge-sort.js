@@ -33,7 +33,7 @@ function merge(left, right) {
 
     //tracks where in the array the split happens
     
-    if(side == 3 || side == 10) {
+    if(side == 3 || side == 12) {
       position += 4;
     } else if(side == 7) {
       position += 7;
