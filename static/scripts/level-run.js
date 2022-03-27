@@ -123,7 +123,7 @@ function buttonPress() {
             addIncorrect(levelNum);
             document.getElementById("stepCorrect").innerHTML = "❌";
             document.getElementById("incorrect").play();
-            if(mistakeCount > 4) {
+            if(mistakeCount > 2) {
                 levelDone = true;
                 levelCorrect = false;
             }
