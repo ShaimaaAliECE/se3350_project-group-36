@@ -26,10 +26,12 @@ function levelSet(level) {
     } else if(level == 4) {
         size = 19;
         array = randomArray(20, 50); 
+        mergePosition = [0, 0, 3, 0, 5, 5, 8, 5, 0, 10, 10, 13, 10, 15, 15, 18, 15, 10, 0]; 
         sharedFunctions();
     } else if(level == 5) {
         size = 49;
         array = randomArray(50, 100); 
+        mergePosition = [0, 0, 3, 0, 5, 5, 8, 5, 0]; 
         sharedFunctions();
     }
 }
@@ -99,7 +101,7 @@ function buttonPress() {
             document.getElementById("correct").play();
             checkStep++;
 
-            if(levelNum == 2) {
+            if(levelNum == 2 || levelNum == 4) {
                 if(checkStep < allSteps().length) {
                     if(allSteps()[checkStep][0] > 0) {
                         document.getElementById("stepTracker").innerHTML = "Step " + (checkStep + 1) + ": Split at position " + (allSteps()[checkStep][0]);

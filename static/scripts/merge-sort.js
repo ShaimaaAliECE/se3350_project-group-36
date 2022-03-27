@@ -1,14 +1,14 @@
-position = 9;
-side = 0;
+if(document.title == "Level 4") {
+  position = 20;
+} else if(document.title == "Level 5") {
+  position = 50;
+} else {
+  position = 10;
+}
 
 finishedArray = [];
 stepCounter = 0;
-/*var merge_counter = 0;
-let leftSplit = [];
-let rightSplit = [];
-var split_counter = 0;
-let newMerge = [];
-*/
+side = 0;
 
 
 function merge(left, right) {
@@ -32,13 +32,16 @@ function merge(left, right) {
     merge_counter++;*/
 
     //tracks where in the array the split happens
-    if(side == 3) {
-        position += 4;
+    
+    if(side == 3 || side == 10) {
+      position += 4;
+    } else if(side == 7) {
+      position += 7;
     } else {
-        position += 2;
+      position += 2;
     }
     side += 1;
-    
+
     finishedArray[stepCounter] = [0, ...sortedArr, ...left, ...right];
     stepCounter++;
 
@@ -54,7 +57,7 @@ function merge(left, right) {
       return arr;
     } else {
       if(half > 1) {
-        position -= half - 1;
+        position -= Math.floor(arr.length / 2);
       } else {
         position -= 1;
       } 
