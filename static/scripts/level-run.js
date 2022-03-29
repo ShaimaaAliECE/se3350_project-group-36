@@ -102,7 +102,7 @@ function buttonPress() {
 
         if(mistakeCheck == true) {
             document.getElementById("stepCorrect").innerHTML = "✔️";
-            addCorrect(levelNum);
+            addCorrect(levelNum-1);
             timeStep(checkStep);
             document.getElementById("correct").play();
             checkStep++;
@@ -124,7 +124,8 @@ function buttonPress() {
             reset();
         } else {
             document.getElementById("mistakeCounter").innerHTML = "Mistakes: " + mistakeCount;
-            addIncorrect(levelNum);
+            addIncorrect(levelNum-1);
+            timeStep(checkStep);
             document.getElementById("stepCorrect").innerHTML = "❌";
             document.getElementById("incorrect").play();
             if(mistakeCount > 2) {
@@ -138,12 +139,14 @@ function buttonPress() {
                 levelEnd();
                 trackFinalStats(levelNum);
                 saveAnswers();
-                saveTimes(levelNum);
+                saveTimes();
                 document.getElementById("stepTracker").innerHTML = "Level Done! Time Taken: " + calcTime();;
                 document.getElementById("checkButton").innerHTML = "Next";
             } else {
                 levelEnd();
                 trackFinalStats(levelNum);
+                saveAnswers();
+                saveTimes();
                 document.getElementById("stepTracker").innerHTML = "Level Failed! 3 Mistakes Made...";
                 document.getElementById("checkButton").innerHTML = "Retry";
             }

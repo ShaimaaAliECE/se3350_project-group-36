@@ -98,7 +98,7 @@ function timeOut(){
 }
 
 
-function saveTimes(level){
+function saveTimes(){
     localStorage.saveLevelTime = JSON.stringify(level_time);
     localStorage.saveStepTime = JSON.stringify(all_levels_step_time);
 }
