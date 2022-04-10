@@ -19,28 +19,22 @@
         <script type = "text/javascript" src = '..\scripts\user-stats.js'></script>
     </head>
 
+  
+    <body>
+        <h2>Statistics</h2>
+
+
+        <button onclick="printAnswerStats()">printanswerstats</button>
+        <button onclick="printTimerStats()">printtimerstats</button>
+        <button onclick="clearStorage()">clearStorage</button>
     
-    <button onclick="levelStart()">start</button>
-    <button onclick="levelEnd()">end</button>
 
-    <button onclick="timeStep(0)">timestep0</button>
-    <button onclick="timeStep(1)">timestep1</button>
-    <button onclick="timeStep(2)">timestep2</button>
+        <div id="answer_div"></div>
 
-    <button onclick="trackFinalStats(0)">finaltimes0</button>
-    <button onclick="trackFinalStats(1)">finaltimes1</button>
-
-    <button onclick="addCorrect(0)">correct0</button>
-    <button onclick="addIncorrect(0)">incorrect0</button>
-    <button onclick="addCorrect(1)">correct1</button>
-    <button onclick="addIncorrect(1)">incorrect1</button>
-
-    <button onclick="printAnswerStats()">printanswerstats</button>
-    <button onclick="printTimerStats()">printtimerstats</button>
-    <button onclick="clearStorage()">clearStorage</button>
+    </body>
 
 
-
+    
     <script>
         function clearStorage(){
             localStorage.clear();

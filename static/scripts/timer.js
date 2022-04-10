@@ -110,7 +110,7 @@ function printTimerStats(){
     all_levels_step_time = JSON.parse(localStorage.saveStepTime);
 
     for (i=0; i < 5; i++){ //prints the time spent on each level and each step for every level
-        console.log("level " + (i+1) + " time: " + level_time[i]);
-        console.log("level " + (i+1) + " time: " + all_levels_step_time[i]);
+        document.write("\nlevel " + (i+1) + " time: " + level_time[i] +  " | ");
+       document.write("\nlevel " + (i+1) + " time: " + all_levels_step_time[i] +  " | ");
     }
 }

@@ -28,7 +28,9 @@ function printAnswerStats(){
     incorrectAnswers = JSON.parse(localStorage.saveIncorrects);
 
     for (i=0; i < 5; i++){
-        console.log("level " + (i+1) + " -> corrects:" + correctAnswers[i]); //prints the stats
-        console.log("level " + (i+1) + " -> incorrects: " + incorrectAnswers[i]);
+  
+        //document.getElementById("answer_div").innerHTML = "level " + (i+1) + "correct answers: " + correctAnswers[i];
+        document.write("\nlevel " + (i+1) + " -> corrects: " + correctAnswers[i] +  " | "); //prints the stats
+        document.write("\nlevel " + (i+1) + " -> incorrects: " + incorrectAnswers[i] +  " | ");
     }
 }
